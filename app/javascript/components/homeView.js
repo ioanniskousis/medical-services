@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+// import { BrowserRouter, Link } from 'react-router-dom';
+// import LogoText from './logoText';
 
 class HomeView extends React.Component {
   constructor(props) {
@@ -8,11 +10,8 @@ class HomeView extends React.Component {
 
   render() {
     return (
-      <div className="medicalServicesPanel">
-        <div className="serviceLabel">medical</div>
-        <div className="serviceLabel pdL60">services</div>
-      </div>
-    )
+      <h1>Home View</h1>
+    );
   }
 }
 

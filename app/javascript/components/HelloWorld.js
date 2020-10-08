@@ -5,6 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
+import { BrowserRouter, Link } from 'react-router-dom';
 
 const GET_THINGS_REQUEST = 'GET_THINGS_REQUEST';
 const GET_THINGS_SUCCESS = 'GET_THINGS_SUCCESS';
@@ -39,12 +40,18 @@ class HelloWorld extends React.Component {
     const { greeting } = this.props;
     return (
       <React.Fragment>
-        Greeting:
-        {greeting}
-        <br />
-        <button type="button" className="getThingsBtn" onClick={() => getThings()}>getThings</button>
-        <br />
-        <ul>{ thingsList }</ul>
+        <div className="reactFregment">
+          <BrowserRouter>
+            <Link to="/">HOME</Link>
+          </BrowserRouter>
+          <br />
+          Greeting:
+          {greeting}
+          <br />
+          <button type="button" className="getThingsBtn" onClick={() => getThings()}>getThings</button>
+          <br />
+          <ul>{ thingsList }</ul>
+        </div>
       </React.Fragment>
     );
   }

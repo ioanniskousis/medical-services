@@ -4,16 +4,14 @@
     <title>Medical Services</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <%= favicon_link_tag asset_path('hospital-32.png') %>
   </head>
 
   <body>
-    <%= link_to "Home", root_path, class:"primeLink" %>
-    <%= link_to "Users", users_path, class:"primeLink" %>
-    <%= link_to "Login", new_session_path, class:"primeLink" %>
-    
+
     <%= yield %>
   </body>
 </html>

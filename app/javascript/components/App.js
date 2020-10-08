@@ -9,7 +9,10 @@ import HelloWorld from './HelloWorld';
 
 import configureStore from '../configureStore';
 
+import Navbar from './Navbar';
 import HomeView from './homeView';
+
+import LogoText from './logoText';
 
 const store = configureStore();
 
@@ -17,13 +20,15 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/">
-              <HomeView />
-            </Route>
-            <Route path="/hello" render={() => <HelloWorld greeting="Friend" />} />
-          </Switch>
+        <BrowserRouter className="App">
+          <div className="desktop">
+            <LogoText />
+            <Navbar />
+            <Switch>
+              <Route exact path="/" component={HomeView} />
+              <Route path="/hello" component={HelloWorld} />
+            </Switch>
+          </div>
         </BrowserRouter>
       </Provider>
     );
