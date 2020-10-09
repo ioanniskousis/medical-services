@@ -5,9 +5,16 @@ import { Link, withRouter } from 'react-router-dom';
 
 const Navbar = props => {
   const { location } = props;
+  if (!location) {
+    return (<div />);
+  }
   const { pathname } = location;
-  const viewHomeClass = pathname === '/home' ? 'nav-link nav-selected' : 'nav-link';
-  const viewHelloClass = pathname === '/hello' ? 'nav-link nav-selected' : 'nav-link';
+  if (pathname === '/') {
+    return (<div />);
+  }
+  const viewHomeClass = (pathname === '/') ? 'nav-link nav-selected' : 'nav-link';
+  const viewServicesClass = pathname === '/services' ? 'nav-link nav-selected' : 'nav-link';
+  const viewDoctorsClass = pathname === '/doctors' ? 'nav-link nav-selected' : 'nav-link';
   const viewBookClass = pathname === '/book' ? 'nav-link nav-selected' : 'nav-link';
   const viewResultsClass = pathname === '/results' ? 'nav-link nav-selected' : 'nav-link';
   const viewContactClass = pathname === '/contact' ? 'nav-link nav-selected' : 'nav-link';
@@ -16,14 +23,15 @@ const Navbar = props => {
   return (
     <nav className="nav-wrapper">
       <div className="container">
-        <ul className="right">
-          <li><Link to="/home" className={viewHomeClass}>departments</Link></li>
-          <li><Link to="/hello" className={viewHelloClass}>services</Link></li>
+        <ul className="nav-wrapper-ul">
+          <li><Link to="/" className={viewHomeClass}>home</Link></li>
+          <li><Link to="/services" className={viewServicesClass}>services</Link></li>
+          <li><Link to="/doctors" className={viewDoctorsClass}>doctors</Link></li>
           <li><Link to="/book" className={viewBookClass}>book</Link></li>
-          <li><Link to="/checkin" className={viewCheckInClass}>checkin</Link></li>
+          <li><Link to="/checkin" className={viewCheckInClass}>check in</Link></li>
           <li><Link to="/results" className={viewResultsClass}>results</Link></li>
           <li><Link to="/contact" className={viewContactClass}>contact</Link></li>
-          <li><a href="/sessions/new" className={viewLoginClass}>login</a></li>
+          <li><a href="/sessions/new" className={viewLoginClass}>log in</a></li>
         </ul>
       </div>
     </nav>
@@ -32,7 +40,7 @@ const Navbar = props => {
 
 Navbar.propTypes = {
   pathname: PropTypes.string,
-  location: PropTypes.string,
+  location: PropTypes.objectOf(PropTypes.any),
 };
 
 Navbar.defaultProps = {

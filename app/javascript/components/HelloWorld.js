@@ -5,7 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 const GET_THINGS_REQUEST = 'GET_THINGS_REQUEST';
 const GET_THINGS_SUCCESS = 'GET_THINGS_SUCCESS';
@@ -41,9 +41,7 @@ class HelloWorld extends React.Component {
     return (
       <React.Fragment>
         <div className="reactFregment">
-          <BrowserRouter>
-            <Link to="/">HOME</Link>
-          </BrowserRouter>
+          <Link to="/">HOME</Link>
           <br />
           Greeting:
           {greeting}
@@ -75,4 +73,4 @@ const structureSelector = createStructuredSelector({
 
 const mapDispatchToProps = { getThings };
 
-export default connect(structureSelector, mapDispatchToProps)(HelloWorld);
+export default connect(structureSelector, mapDispatchToProps)(withRouter(HelloWorld));

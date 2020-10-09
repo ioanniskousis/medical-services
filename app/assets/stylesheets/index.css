@@ -3,6 +3,12 @@
 
 * {
   box-sizing: border-box;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+* ::-webkit-scrollbar {
+  display: none;
 }
 
 html {
@@ -32,7 +38,7 @@ body {
   font-size: 32px;
   font-weight: 500;
   flex-direction: column;
-  /* z-index: -1; */
+  z-index: 10;
 }
 
 .serviceLabel {
@@ -46,6 +52,10 @@ body {
 .pdL60 {
   padding-left: 60px;
   color: #333;
+}
+
+.pdR10 {
+  padding-right: 10px;
 }
 
 .App {
@@ -79,10 +89,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 11;
 }
 
 .nav-wrapper .container {
   width: 100%;
+  /* background-color: rosybrown; */
 }
 
 .nav-wrapper ul {
@@ -114,4 +126,322 @@ body {
 .nav-selected {
   background-color: rgb(137,199, 0);
   color:rgba(255, 255, 255, 0.9);
-} 
+}
+
+.homeView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  background-color: rgb(255, 181,0);
+  flex: 1;
+  height: 100%;
+  overflow: auto;
+}
+
+.homeDescription {
+  width: 20%;
+  /* flex: 1; */
+  height: 100%;
+  /* min-width: 240px; */
+  /* background-color: rgba(100, 100, 255, 0.5); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Mukta', sans-serif;
+  font-size: 16px;
+  padding: 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.homeServices {
+  width: 20%;
+  /* flex: 1; */
+  height: 100%;
+  /* min-width: 240px; */
+  /* background-color: rgba(255, 100, 100, 0.5); */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 20px;
+  font-family: 'Mukta', sans-serif;
+  font-size: 16px;
+  /* color: #333; */
+  color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+}
+
+.homeViewBody {
+  width: 60%;
+  /* min-width: 480px; */
+  height: 100%;
+  /* background-color: rgba(100, 255, 100, 0.5); */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+
+.homeViewBody span {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 50px;
+}
+
+.homeTitle {
+  display: flex;
+  font-size: 42px;
+  font-family: 'Mukta', sans-serif;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  line-height: 32px;
+  z-index: 10;
+}
+
+.homeLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.homeImage {
+  width: 100%;
+  max-width: 780px;
+  /* border-radius: 6px; */
+  
+}
+
+.homeImage:hover {
+  /* box-shadow: 0 0 4px 4px rgba(100, 100, 100, 0.3); */
+}
+
+
+.departmentsList {
+  /* background-color: rgb(43, 81, 116); */
+  flex: 1;
+  height: 100%;
+  padding: 20px;
+}
+
+.departmentsBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: burlywood; */
+  height: 100%;
+  padding: 80px 60px;
+  overflow: auto;
+}
+
+.departmentsGrid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+          "a a a a a a"
+          "a a a a a a"
+          "b b b c c c"
+          "b b b c c c"
+          "b b b c c c"
+          "b b b c c c"
+          "d d d d d d"
+          "d d d d d d";
+  grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  overflow: auto;
+}
+
+.areaA {
+  grid-area: a;
+}
+
+.areaB {
+  grid-area: b;
+}
+
+.areaC {
+  grid-area: c;
+}
+
+.areaD {
+  grid-area: d;
+}
+
+.areaE {
+  grid-area: e;
+}
+
+.areaF {
+  grid-area: f;
+}
+
+.areaG {
+  grid-area: g;
+}
+
+.areaH {
+  grid-area: h;
+}
+
+.areaI {
+  grid-area: i;
+}
+
+.departmentPanel {
+  display: flex;
+}
+
+.flexCol {
+  flex-direction: column;
+}
+
+.departmentPanelImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.departmentPanelImage {
+  height: 20vh;
+}
+
+.departmentPanelImageCol {
+  width: 40vw;
+}
+
+.departmentPanelNameContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Mukta', sans-serif;
+  font-size: 22px;
+  color: black;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.searchLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+}
+
+.searchLink:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.searchImage {
+  width: 50%;
+  height: 50%;
+}
+
+.depsList {
+  list-style-type: disc;
+}
+@media only screen and (max-width: 961px) {
+  .homeView {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .homeDescription {
+    width: 100%;
+    height: auto;
+    background-color: rgba(100, 100, 100, 0.3);
+    line-height: 18px;
+  }
+
+  .homeServices {
+    width: 100%;
+    height: 240px;
+  }
+
+  .departmentsList {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+
+  .homeViewBody {
+    order: 0;
+    margin-top: 200px;
+    width: 100%;
+    height: 480px;
+  }
+
+  .homeDescription {
+    order: 1;
+    /* margin-top: 100px; */
+  }
+
+  .homeServices {
+    order: 2;
+    justify-content: flex-start;
+  }
+  .homeImage {
+    /* max-height: 400px; */
+    /* width: auto; */
+    max-width: 480px;
+  }
+}
+
+.doctorsView {
+  flex: 1;
+  background-color: red;
+}
+
+@media only screen and (max-width: 580px) {
+  .desktop {
+    flex-direction: column;
+  }
+  .nav-wrapper {
+    height: 120px;
+    width: 100%;
+    margin-top: 100px;
+    
+    /* flex-direction: row; */
+    /* width: 140px;
+    height: 100%;
+    padding: 0 0 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+  }
+
+  .nav-wrapper-ul {
+    border-bottom: 1px solid #555;
+  }
+
+  .nav-wrapper ul li {
+    float: left;
+    display: block;
+  }
+
+  .nav-link {
+    /* margin: 2px; */
+  }
+
+  .departmentsBody {
+    padding: 0;
+  }
+}
