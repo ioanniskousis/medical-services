@@ -6,7 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 // import HelloWorld from './HelloWorld';
-import Departments from './Departments';
+import DepartmentsView from './DepartmentsView';
 
 import configureStore from '../configureStore';
 
@@ -36,7 +36,7 @@ class App extends React.Component {
             <Navbar />
             <Switch>
               <Route exact path="/" component={HomeView} />
-              <Route path="/services" component={Departments} />
+              <Route path="/services" component={DepartmentsView} />
               <Route path="/doctors" component={DoctorsView} />
             </Switch>
           </div>

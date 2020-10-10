@@ -9,7 +9,7 @@ import imageForCardiology from '../../assets/images/cardiology.jpeg';
 import imageForSurgery from '../../assets/images/surgery.jpeg';
 import homeImage from '../../assets/images/homeImage.jpeg';
 
-const Departments = props => {
+const DepartmentsView = props => {
   const ranks = [0, 1, 1, 0, 0, 0, 0, 0];
   const reverses = [0, 1, 0, 1, 1, 0, 0, 0];
   const imagesList = [
@@ -40,21 +40,23 @@ const Departments = props => {
     />
   ));
   return (
-    <div className="departmentsList">
-      <div className="departmentsBody">
-        <div className="departmentsGrid">
-          { departmentsList }
+    <div className="desktop-right">
+      <div className="departmentsList">
+        <div className="departmentsBody">
+          <div className="departmentsGrid">
+            { departmentsList }
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-Departments.propTypes = {
+DepartmentsView.propTypes = {
   clinicData: PropTypes.objectOf(PropTypes.any),
 };
 
-Departments.defaultProps = {
+DepartmentsView.defaultProps = {
   clinicData: null,
 };
 
@@ -62,4 +64,4 @@ const mapStateToProps = state => ({
   clinicData: state.clinicData,
 });
 
-export default connect(mapStateToProps, null)(Departments);
+export default connect(mapStateToProps, null)(DepartmentsView);

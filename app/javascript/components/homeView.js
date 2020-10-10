@@ -34,21 +34,23 @@ class HomeView extends React.Component {
     ));
 
     return (
-      <div className="homeView">
-        <div className="homeDescription">{description}</div>
-        <div className="homeViewBody">
-          <div className="homeTitle">The Medical Center</div>
-          <Link to="/services" className="homeLink">
-            <img src={homeImage} className="homeImage" alt="" />
+      <div className="desktop-right">
+        <div className="homeView">
+          <div className="homeDescription">{description}</div>
+          <div className="homeViewBody">
+            <div className="homeTitle">The Medical Center</div>
+            <Link to="/services" className="homeLink">
+              <img src={homeImage} className="homeImage" alt="" />
+            </Link>
+            <span>click image to enter services</span>
+          </div>
+          <div className="homeServices">
+            {departments}
+          </div>
+          <Link to="/search" className="searchLink">
+            <img src={searchImage} className="searchImage" alt="" />
           </Link>
-          <span>click image to enter services</span>
         </div>
-        <div className="homeServices">
-          {departments}
-        </div>
-        <Link to="/search" className="searchLink">
-          <img src={searchImage} className="searchImage" alt="" />
-        </Link>
       </div>
     );
   }

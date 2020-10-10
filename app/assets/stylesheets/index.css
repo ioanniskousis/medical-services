@@ -128,13 +128,21 @@ body {
   color:rgba(255, 255, 255, 0.9);
 }
 
+.desktop-right {
+  flex: 1;
+  height: 100%;
+  box-sizing: border-box;
+  /* background-color: black; */
+  /* padding: 10px; */
+}
+
 .homeView {
   display: flex;
   justify-content: center;
   align-items: center;
   /* flex-wrap: wrap; */
   background-color: rgb(255, 181,0);
-  flex: 1;
+  width: 100%;
   height: 100%;
   overflow: auto;
 }
@@ -228,8 +236,8 @@ body {
 
 .departmentsList {
   /* background-color: rgb(43, 81, 116); */
-  flex: 1;
   height: 100%;
+  width: 100%;
   padding: 20px;
 }
 
@@ -259,6 +267,10 @@ body {
   grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   overflow: auto;
+  grid-gap: 10px;
+  /* background-color: rgb(29, 66, 51); */
+  /* box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.1); */
+  padding: 20px;
 }
 
 .areaA {
@@ -299,6 +311,7 @@ body {
 
 .departmentPanel {
   display: flex;
+  /* border: 1px solid black; */
 }
 
 .flexCol {
@@ -311,14 +324,28 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  box-sizing: border-box;
+  padding: 10px;
+  /* border: 1px solid black; */
+  margin: 10px;
 }
 
 .departmentPanelImage {
+  display: block;
   height: 20vh;
+  /* box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.3); */
+  border-radius: 10px;
+  /* margin: 10px; */
+  overflow: hidden;
 }
 
 .departmentPanelImageCol {
+  display: block;
   width: 40vw;
+  /* box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.3); */
+  border-radius: 10px;
+  /* margin: 10px; */
+  overflow: hidden;
 }
 
 .departmentPanelNameContainer {
@@ -331,7 +358,7 @@ body {
   font-size: 22px;
   color: black;
   overflow: hidden;
-  padding: 10px;
+  margin: 10px;
 }
 
 .searchLink {
@@ -358,6 +385,31 @@ body {
 .depsList {
   list-style-type: disc;
 }
+
+.doctorsView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
+  position: relative;
+}
+
+.doctorsCarousel {
+  /* background: #000; */
+  width: 100%;
+  height: calc(100% - 30px);
+  color: #888;
+  box-shadow: 0 0 4px 4px rgba(255, 255, 255, 0.3);
+  padding: 30px 60px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media only screen and (max-width: 961px) {
   .homeView {
     flex-direction: column;
@@ -374,12 +426,6 @@ body {
   .homeServices {
     width: 100%;
     height: 240px;
-  }
-
-  .departmentsList {
-    width: 100%;
-    height: 100%;
-    overflow: auto;
   }
 
   .homeViewBody {
@@ -405,19 +451,19 @@ body {
   }
 }
 
-.doctorsView {
-  flex: 1;
-  background-color: red;
-}
-
 @media only screen and (max-width: 580px) {
   .desktop {
     flex-direction: column;
   }
+  .desktop-right {
+    width: 100%;
+    height: calc(100% - 240px);
+  }
+
   .nav-wrapper {
     height: 120px;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 80px;
     
     /* flex-direction: row; */
     /* width: 140px;
@@ -429,7 +475,7 @@ body {
   }
 
   .nav-wrapper-ul {
-    border-bottom: 1px solid #555;
+    
   }
 
   .nav-wrapper ul li {
@@ -439,6 +485,7 @@ body {
 
   .nav-link {
     /* margin: 2px; */
+    border-bottom: 1px solid #555;
   }
 
   .departmentsBody {
