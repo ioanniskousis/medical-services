@@ -4,14 +4,17 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import './carousel';
-import carouselInit from './carousel';
+import carouselInit, { stopTimer } from './carousel';
 import leftArrow from '../../assets/images/interface/arrow-left.png';
 import rightArrow from '../../assets/images/interface/arrow-right.png';
 
 class DoctorsView extends React.Component {
-
   componentDidMount() {
     carouselInit();
+  }
+
+  componentWillUnmount() {
+    stopTimer();
   }
 
   render(props) {
@@ -23,6 +26,9 @@ class DoctorsView extends React.Component {
           <div className="doctorsCarousel">
             <div id="viewer" className="viewer">
               <div id="slider" className="slider" />
+            </div>
+            <div className="topControlsContainer">
+              <div id="wheel" className="wheel" />
             </div>
             <div id="leftArrow" className="side-controller left-controller">
               <img id="leftArrowImage" src={leftArrow} alt="" />

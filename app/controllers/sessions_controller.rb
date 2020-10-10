@@ -5,13 +5,14 @@ class SessionsController < ApplicationController
   end
 
   def create
+
     @user = User.find_by(username: params[:username])
 
     if @user
       session[:user_id] = @user.id
       @current_user = User.find(session[:user_id])
 
-      redirect_to opinions_path
+      redirect_to '/booking'
     else
       flash.alert = "'" + params[:username] + "' : is a Wrong User Name !!"
 

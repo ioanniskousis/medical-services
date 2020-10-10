@@ -1,15 +1,24 @@
-<h1>New Session</h1>
 
-<main class="new-user-main">
-  <div class="main-">
+<main class="new-session">
+  <div class="medicalServicesPanel">
+    <div class="serviceLabel">medical</div>
+    <div class="serviceLabel pdL60">services</div>
+  </div>
+  <div class="new-session-main">
+    <h1>Log In To Access Services</h1>
     <div class="form-div">
 
       <%= form_with( url: sessions_path ) do |f| %>
         <%= flash.alert %>
 
         <div class="field">
-          <%= label_tag :username, "User Name to Log In" %><br />
+          <%= label_tag :username, "User Name" %>
           <%= f.text_field :username, autofocus: true  %>
+        </div>
+
+        <div class="field">
+          <%= label_tag :password, "Password" %>
+          <%= f.password_field :password %>
         </div>
 
         <div class="actions">

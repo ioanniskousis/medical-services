@@ -1,3 +1,4 @@
+import { gel, crel } from '../utils';
 import photo1 from '../../assets/images/photo1.jpeg';
 import photo2 from '../../assets/images/photo2.jpeg';
 import photo3 from '../../assets/images/photo3.jpeg';
@@ -6,8 +7,11 @@ import photo5 from '../../assets/images/photo5.jpeg';
 import photo6 from '../../assets/images/photo6.jpeg';
 import photo7 from '../../assets/images/photo7.jpeg';
 
-import square from '../../assets/images/interface/square.png';
-import squareselected from '../../assets/images/interface/square-selected.png';
+// import square from '../../assets/images/interface/square.png';
+// import squareselected from '../../assets/images/interface/square-selected.png';
+import wheelImage from '../../assets/images/interface/gear-2-64.png';
+
+let CLOCK_ROUNDS = 0;
 
 function slidesTB() {
   return [
@@ -24,32 +28,35 @@ const slides = slidesTB();
 
 const TIMER_DIRECTION_FORWARD = 1;
 const TIMER_DIRECTION_BACKWARDS = -1;
-let TIMER_INTERVAL = 1000;
+const TIMER_INTERVAL = 2000;
 
 let timer = null;
 let currentIndex = 0;
 let timerDirection = TIMER_DIRECTION_FORWARD;
 
 function loadSlides() {
-  const slider = document.getElementById('slider');
-  const footer = document.getElementById('carousel-footer');
+  const slider = gel('slider');
+  const footer = gel('carousel-footer');
   for (let index = 0; index < slides.length; index += 1) {
     const slideImage = slides[index];
 
-    const slide = document.createElement('div');
+    const slide = crel('div');
     slide.className = 'slide';
-    const img = document.createElement('img');
+    const img = crel('img');
     img.setAttribute('src', slideImage);
     slide.appendChild(img);
 
     slider.appendChild(slide);
 
-    const indexButton = document.createElement('div');
+    const indexButton = crel('div');
     indexButton.className = 'indexButton';
-    const image = document.createElement('image');
-    image.src = square;
-    indexButton.appendChild(image);
+    // const image = crel('img');
+    // image.className = 'indexButtonImage';
+    // image.setAttribute('src', square);
+    // indexButton.appendChild(image);
     footer.appendChild(indexButton);
+
+    gel('wheel').style.backgroundImage = wheelImage;
   }
 }
 
@@ -63,32 +70,38 @@ function highlightIndex(index) {
 
 function slideTo(index) {
   currentIndex = index;
-  const slider = document.getElementById('slider');
-  const xSlide = document.getElementById('viewer').offsetWidth;
+  const slider = gel('slider');
+  const xSlide = gel('viewer').offsetWidth;
   const left = -(index * xSlide);
   slider.style.left = left.toString().concat('px');
   highlightIndex(index);
 }
 
 function resize() {
-  const xSlide = document.getElementById('viewer').offsetWidth;
-  const slider = document.getElementById('slider');
+  const xSlide = gel('viewer').offsetWidth;
+  const slider = gel('slider');
   slider.style.width = (xSlide * slides.length).toString().concat('px');
   slideTo(0);
 }
 
 function timerControl() {
+  CLOCK_ROUNDS = 0;
   return setInterval(() => {
+    CLOCK_ROUNDS += 1;
     if ((timerDirection === TIMER_DIRECTION_FORWARD) && (currentIndex === (slides.length - 1))) {
       timerDirection = TIMER_DIRECTION_BACKWARDS;
     } else if ((timerDirection === TIMER_DIRECTION_BACKWARDS) && (currentIndex === 0)) {
       timerDirection = TIMER_DIRECTION_FORWARD;
     }
     slideTo((currentIndex + timerDirection) % slides.length);
-    // const wheel = document.getElementById('wheel');
-    // wheel.style.transition = 'transform '.concat((5 * (TIMER_INTERVAL / 1000)).toString()).concat('s linear');
-    // wheel.style.transform = 'rotate('.concat((timerDirection * 360 * (TIMER_INTERVAL / 1000)).toString().concat('deg')).concat(')');
+    const wheel = gel('wheel');
+    wheel.style.transform = 'rotate('.concat((timerDirection * 90 * CLOCK_ROUNDS).toString().concat('deg')).concat(')');
   }, TIMER_INTERVAL);
+}
+
+export function stopTimer() {
+  clearInterval(timer);
+  timer = null;
 }
 
 function addListeners() {
@@ -107,43 +120,48 @@ function addListeners() {
     });
   }
 
-  document.getElementById('leftArrow').addEventListener('click', () => {
+  gel('leftArrow').addEventListener('click', () => {
     if (currentIndex > 0) {
       slideTo(currentIndex - 1);
     }
   });
 
-  document.getElementById('rightArrow').addEventListener('click', () => {
+  gel('rightArrow').addEventListener('click', () => {
     if (currentIndex < (slides.length - 1)) {
       slideTo(currentIndex + 1);
     }
   });
 
-  // document.getElementById('wheel').addEventListener('click', () => {
-  //   if (timer) {
-  //     clearInterval(timer);
-  //     timer = null;
-  //   } else {
-  //     timer = timerControl();
-  //   }
-  // });
+  const wheel = gel('wheel');
+  wheel.addEventListener('click', () => {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+      wheel.style.backgroundColor = 'rgba(137, 199, 0, 0.3)';
+      wheel.style.boxShadow = 'none';
+    } else {
+      timer = timerControl();
+      wheel.style.backgroundColor = 'rgba(137, 199, 0, 0.9)';
+      wheel.style.boxShadow = '0 0 3px 3px rgba(137, 199, 0, 0.2)';
+    }
+  });
 
-  // document.getElementById('minus').addEventListener('click', () => {
+  // gel('minus').addEventListener('click', () => {
   //   if (TIMER_INTERVAL > 1000) {
   //     TIMER_INTERVAL -= 1000;
   //     clearInterval(timer);
   //     timer = timerControl();
   //     if (TIMER_INTERVAL === 1000) {
-  //       document.getElementById('minus').style.opacity = 0.5;
+  //       gel('minus').style.opacity = 0.5;
   //     }
   //   }
   // });
 
-  // document.getElementById('plus').addEventListener('click', () => {
+  // gel('plus').addEventListener('click', () => {
   //   TIMER_INTERVAL += 1000;
   //   clearInterval(timer);
   //   timer = timerControl();
-  //   document.getElementById('minus').style.opacity = 1;
+  //   gel('minus').style.opacity = 1;
   // });
 }
 

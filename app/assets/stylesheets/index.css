@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@600;700&family=Mukta:wght@500;600;700&family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@600;700&family=Mukta:wght@500;600;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -36,7 +36,7 @@ body {
   align-items: center;
   font-family: 'Sansita Swashed', cursive;
   font-size: 32px;
-  font-weight: 500;
+  font-weight: 800;
   flex-direction: column;
   z-index: 10;
 }
@@ -408,6 +408,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 @media only screen and (max-width: 961px) {

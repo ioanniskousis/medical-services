@@ -89,17 +89,25 @@
 .indexButton {
   width: 20px;
   height: 20px;
-  background-position: center center;
+  /* background-position: center center;
   background-repeat: no-repeat;
   background-size: 50% 40%;
-  border-radius: 50%;
+  border-radius: 50%; */
   /* background-image: url('../images/interface/square.png'); */
-  /* opacity: 0.3; */
+  opacity: 0.3;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  background-color: #aaa;
+  background-color: rgba(137, 199, 0, 1);
   /* margin-right: 2px; */
   margin: 4px 6px;
+  border-radius: 50%;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.indexButtonImage {
+  width: 20px 24px;
 }
 
 .indexButton:hover {
@@ -108,6 +116,40 @@
 
 .indexSelected {
   /* background-image: url('../images/interface/square-selected.png'); */
-  background-color: #000;
+  background-color: rgb(137, 199, 0);
   opacity: 0.8;
+}
+
+.topControlsContainer {
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  position: absolute;
+  top: 10px;
+  left: calc(50% - 60px);
+  width: 120px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.wheel {
+  width: 30px;
+  height: 30px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  background-color: rgba(137, 199, 0, 0.3);
+  /* background-image: url('../images/interface/gear-2-64.png'); */
+  background-size: 70% 70%;
+  transition: transform 2s linear;
+  /* visibility: hidden; */
+}
+
+.wheel:hover {
+  background-color: rgba(137, 199, 0, 0.7);
+}
+
+.wheel:active {
+  background-color: rgba(137, 199, 0, 1);
 }

@@ -15,19 +15,16 @@ import HomeView from './homeView';
 import DoctorsView from './DoctorsView';
 
 import LogoText from './logoText';
-// import Desktop from './Desktop';
 import downloadDepartments from '../api/departmentsDB';
 
 const store = configureStore();
 
 class App extends React.Component {
-
   componentDidMount() {
     downloadDepartments(store);
   }
 
   render() {
-    // alert(Object.keys(this.props));
     return (
       <Provider store={store}>
         <BrowserRouter className="App">
