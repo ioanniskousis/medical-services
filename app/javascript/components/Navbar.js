@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
+import getCookieValue from '../appCookies';
 
 const Navbar = props => {
   const { location } = props;
@@ -18,8 +19,20 @@ const Navbar = props => {
   const viewBookClass = pathname === '/booking' ? 'nav-link nav-selected' : 'nav-link';
   const viewResultsClass = pathname === '/results' ? 'nav-link nav-selected' : 'nav-link';
   const viewContactClass = pathname === '/contact' ? 'nav-link nav-selected' : 'nav-link';
-  const viewLoginClass = pathname === '/login' ? 'nav-link nav-selected' : 'nav-link';
+  const viewLoginClass = 'nav-link colorGreen';
+  const viewLogoutClass = 'nav-link colorRed';
   const viewCheckInClass = pathname === '/checkin' ? 'nav-link nav-selected' : 'nav-link';
+
+  const loggedin = getCookieValue('loggedin');
+  const loginButton = !loggedin ? (
+    <li><Link to="/login" className={viewLoginClass}>log in</Link></li>
+  ) : '';
+  const logoutButton = loggedin ? (
+    <li><a href="/sessions/0" className={viewLogoutClass}>log out</a></li>
+  ) : '';
+  // <li><a href="/sessions/new" className={viewLoginClass}>log in</a></li>
+  // <li><Link to="/login" className={viewLoginClass}>login</Link></li>
+  // <li><a href="/sessions" className={viewLogoutClass}>log out</a></li>
   return (
     <nav className="nav-wrapper">
       <div className="container">
@@ -31,7 +44,8 @@ const Navbar = props => {
           <li><Link to="/checkin" className={viewCheckInClass}>check in</Link></li>
           <li><Link to="/results" className={viewResultsClass}>results</Link></li>
           <li><Link to="/contact" className={viewContactClass}>contact</Link></li>
-          <li><a href="/sessions/new" className={viewLoginClass}>log in</a></li>
+          {loginButton}
+          {logoutButton}
         </ul>
       </div>
     </nav>

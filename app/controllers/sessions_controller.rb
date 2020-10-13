@@ -1,27 +1,29 @@
 class SessionsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def new
-    # @direction = 'new_session'
+    logout
     render :new
   end
 
   def create
-
-    @user = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:username], password: params[:password])
 
     if @user
       session[:user_id] = @user.id
-      @current_user = User.find(session[:user_id])
+      cookies[:loggedin] = 'true'
+      cookies[:userfullname] = @user.fullname
 
-      redirect_to '/booking'
+      redirect_to '/services'
     else
-      flash.alert = "'" + params[:username] + "' : is a Wrong User Name !!"
-
-      redirect_to new_session_path
+      logout
+      redirect_to '/login?login_error=1'
     end
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to new_session_path
+    logout
+    @debug = 'logged out'
+    redirect_to '/'
   end
 end

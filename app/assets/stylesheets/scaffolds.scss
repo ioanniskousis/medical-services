@@ -41,6 +41,10 @@ div.actions {
   background-color: red;
   display: table; }
 
+.errorContainer {
+  padding: 10px;
+  background-color: rgba(199, 37, 0, 1); }
+
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -63,3 +67,27 @@ div.actions {
 
 label {
   display: block; }
+
+.debug {
+  background-color: white;
+  // border: 1px solid #aaa;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: right;
+  color: red;
+}
+
+.colorRed {
+  color: rgb(237, 151, 151);
+}
+
+.colorBlue {
+  color: rgb(78, 0, 204);
+}
+
+.colorGreen {
+  color: rgb(137, 199, 0);
+}

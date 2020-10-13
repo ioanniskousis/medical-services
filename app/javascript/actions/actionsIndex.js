@@ -1,7 +1,6 @@
 const INIT_DEPARTMENTS = 'INIT_DEPARTMENTS';
 const INIT_DOCTORS = 'INIT_DOCTORS';
-const SHOW_PROFILE = 'SHOW_PROFILE';
-const SHOW_LIST = 'SHOW_LIST';
+const INIT_BOOKINGS = 'INIT_BOOKINGS';
 
 const initDepartments = departments => ({
   type: INIT_DEPARTMENTS,
@@ -13,18 +12,13 @@ const initDoctors = doctors => ({
   doctors,
 });
 
-const showProfile = event => ({
-  type: SHOW_PROFILE,
-  event,
-});
-
-const showList = () => ({
-  type: SHOW_LIST,
+const initBookings = bookings => ({
+  type: INIT_BOOKINGS,
+  bookings,
 });
 
 export {
   initDepartments,
   initDoctors,
-  showProfile,
-  showList,
+  initBookings,
 };

@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
+  resources :bookings, defaults: { format: 'json' }
   resources :departments, defaults: { format: 'json' }
   resources :users
-  namespace :v1, defaults: { format: 'json' } do
-    get 'things', to: 'things#index'
-  end
   
-  resources :sessions, only: [:new, :create, :destroy]
-  # resources :hello, only: [:index]
+  # resources :sessions, only: [:new, :create, :destroy]
+  get "/sessions/:id" => "sessions#destroy", defaults: { format: 'json' }
+  post "/sessions" => "sessions#create", defaults: { format: 'json' }
+  # , defaults: { format: 'json' }
+  # delete 'sessions/:id', :to => 'sessions#destroy'
 
   get '*page', to: 'static#index', constraints: ->(req) do
     !req.xhr? && req.format.html?

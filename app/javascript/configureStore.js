@@ -6,6 +6,8 @@ const initialState = {
   clinicData: {
     departments: [],
     doctors: [],
+    bookings: [],
+    userFullName: 'sdasdasdad',
   },
 };
 

@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
       false
     end
   end
+
+  def logout
+    session[:user_id] = nil
+    session.delete(:user_id)
+    cookies.delete :loggedin
+    cookies.delete :username
+  end
 end

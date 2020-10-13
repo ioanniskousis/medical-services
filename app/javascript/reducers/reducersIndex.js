@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import departmentsReducer from './departmentsReducer';
+import initDataReducer from './initDataReducer';
 
 const rootReducer = combineReducers({
-  clinicData: departmentsReducer,
+  clinicData: initDataReducer,
 });
 
 export default rootReducer;

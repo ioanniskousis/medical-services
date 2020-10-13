@@ -78,10 +78,13 @@ function slideTo(index) {
 }
 
 function resize() {
-  const xSlide = gel('viewer').offsetWidth;
-  const slider = gel('slider');
-  slider.style.width = (xSlide * slides.length).toString().concat('px');
-  slideTo(0);
+  const viewer = gel('viewer');
+  if (viewer) {
+    const xSlide = viewer.offsetWidth;
+    const slider = gel('slider');
+    slider.style.width = (xSlide * slides.length).toString().concat('px');
+    slideTo(0);
+  }
 }
 
 function timerControl() {
@@ -168,7 +171,7 @@ function addListeners() {
 function carouselInit() {
   loadSlides();
   addListeners();
-  // timer = timerControl();
+  timer = timerControl();
 }
 
 export default carouselInit;
