@@ -10,7 +10,7 @@ import React from 'react';
 // import toDate from 'date-fns/toDate';
 
 import axios from 'axios';
-import appAlert, { gel } from '../utils';
+import { gel, appAlert } from '../utils';
 import downloadBookings from '../api/bookingsDB';
 
 class EditBookingPanel extends React.Component {
