@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import getCookie from '../appCookies';
 
 import BookingPanel from './bookingPanel';
-import EditBookingPanel from './editBookingPanel';
 
 const BookingView = props => {
   const loggedin = getCookie('loggedin');
@@ -15,13 +14,6 @@ const BookingView = props => {
   const { clinicData } = props;
   const { bookings } = clinicData;
   const { store } = props;
-
-  const bookingEdit = loggedin ? (
-    <EditBookingPanel
-      booking={null}
-      store={store}
-    />
-  ) : ('');
 
   let index = 0;
   let bookingsList = ('');
@@ -50,7 +42,6 @@ const BookingView = props => {
         <p>Personal Booking Records</p>
       </div>
       {newButtonDiv}
-      {/* {bookingEdit} */}
       <div className="bookingsList">
         {bookingsList}
       </div>

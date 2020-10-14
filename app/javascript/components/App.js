@@ -20,6 +20,7 @@ import LogoText from './logoText';
 import downloadDepartments from '../api/departmentsDB';
 import downloadBookings from '../api/bookingsDB';
 import Login from './Login';
+import SignUp from './signup';
 
 const store = configureStore();
 
@@ -56,6 +57,9 @@ class App extends React.Component {
               </Route>
               <Route path="/login">
                 <Login />
+              </Route>
+              <Route path="/signup">
+                <SignUp />
               </Route>
             </Switch>
           </div>

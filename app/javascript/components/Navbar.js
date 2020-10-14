@@ -43,10 +43,6 @@ const Navbar = props => {
           <li><Link to="/services" className={viewServicesClass}>services</Link></li>
           <li><Link to="/doctors" className={viewDoctorsClass}>doctors</Link></li>
           <li><Link to="/booking" id="nav-link-booking" className={viewBookClass}>booking</Link></li>
-          {newBookingButton}
-          <li><Link to="/checkin" className={viewCheckInClass}>check in</Link></li>
-          <li><Link to="/results" className={viewResultsClass}>results</Link></li>
-          <li><Link to="/contact" className={viewContactClass}>contact</Link></li>
           {loginButton}
           {logoutButton}
         </ul>

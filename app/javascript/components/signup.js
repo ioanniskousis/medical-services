@@ -1,18 +1,22 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { gel } from '../utils';
 
-class Login extends React.Component {
+class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: '',
       password: '',
+      fullname: '',
+      email: '',
     };
     this.handleUserNameChange = this.handleUserNameChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleFullNameChange = this.handleFullNameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+
     this.validateForm = this.validateForm.bind(this);
   }
 
@@ -42,13 +46,35 @@ class Login extends React.Component {
     });
   }
 
+  handleFullNameChange(e) {
+    e.preventDefault();
+    this.setState({
+      fullname: e.target.value,
+    });
+  }
+
+  handleEmailChange(e) {
+    e.preventDefault();
+    this.setState({
+      email: e.target.value,
+    });
+  }
+
   validateForm() {
-    const { username, password } = this.state;
-    return username.length > 0 && password.length > 0;
+    const {
+      username,
+      password,
+      fullname,
+      email,
+    } = this.state;
+    return (username.length > 0)
+        && (password.length > 0)
+        && (fullname.length > 0)
+        && (email.length > 0);
   }
 
   render() {
-    const { username, password } = this.state;
+    const { username, password, fullname, email } = this.state;
 
     return (
       <div className="desktop-right">
@@ -60,10 +86,10 @@ class Login extends React.Component {
           <p id="error_message_top" />
 
           <div className="new-session-main">
-            <h1>Log In To Access Services</h1>
+            <h1>Sign Up Credencials</h1>
             <div className="form-div">
 
-              <form action="/sessions" method="post">
+              <form action="/users" method="post">
                 <div>
                   <label>User Name</label>
                   <input
@@ -84,8 +110,27 @@ class Login extends React.Component {
                     onChange={this.handlePasswordChange}
                   />
                 </div>
-                <input disabled={!this.validateForm()} type="submit" value="Login" />
-                <Link to="/signup" className="nav-link nav-selected">sign up</Link>
+                <div>
+                  <label>Full Name</label>
+                  <input
+                    id="fullname"
+                    name="fullname"
+                    type="text"
+                    value={fullname}
+                    onChange={this.handleFullNameChange}
+                  />
+                </div>
+                <div>
+                  <label>email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="text"
+                    value={email}
+                    onChange={this.handleEmailChange}
+                  />
+                </div>
+                <input disabled={!this.validateForm()} type="submit" value="Sign Up" />
               </form>
 
             </div>
@@ -97,12 +142,12 @@ class Login extends React.Component {
   }
 }
 
-Login.propTypes = {
+SignUp.propTypes = {
   location: PropTypes.objectOf(PropTypes.any),
 };
 
-Login.defaultProps = {
+SignUp.defaultProps = {
   location: null,
 };
 
-export default Login;
+export default SignUp;

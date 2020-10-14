@@ -7,8 +7,6 @@ import photo5 from '../../assets/images/photo5.jpeg';
 import photo6 from '../../assets/images/photo6.jpeg';
 import photo7 from '../../assets/images/photo7.jpeg';
 
-// import square from '../../assets/images/interface/square.png';
-// import squareselected from '../../assets/images/interface/square-selected.png';
 import wheelImage from '../../assets/images/interface/gear-2-64.png';
 
 let CLOCK_ROUNDS = 0;
@@ -50,10 +48,6 @@ function loadSlides() {
 
     const indexButton = crel('div');
     indexButton.className = 'indexButton';
-    // const image = crel('img');
-    // image.className = 'indexButtonImage';
-    // image.setAttribute('src', square);
-    // indexButton.appendChild(image);
     footer.appendChild(indexButton);
 
     gel('wheel').style.backgroundImage = wheelImage;
@@ -148,24 +142,6 @@ function addListeners() {
       wheel.style.boxShadow = '0 0 3px 3px rgba(137, 199, 0, 0.2)';
     }
   });
-
-  // gel('minus').addEventListener('click', () => {
-  //   if (TIMER_INTERVAL > 1000) {
-  //     TIMER_INTERVAL -= 1000;
-  //     clearInterval(timer);
-  //     timer = timerControl();
-  //     if (TIMER_INTERVAL === 1000) {
-  //       gel('minus').style.opacity = 0.5;
-  //     }
-  //   }
-  // });
-
-  // gel('plus').addEventListener('click', () => {
-  //   TIMER_INTERVAL += 1000;
-  //   clearInterval(timer);
-  //   timer = timerControl();
-  //   gel('minus').style.opacity = 1;
-  // });
 }
 
 function carouselInit() {

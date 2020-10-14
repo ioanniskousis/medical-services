@@ -53,6 +53,22 @@ class BookingPanel extends React.Component {
       doctorsBoard,
       description,
     } = this.state;
+
+    const bookingPanelMid = doctorsBoard.length > 0 ? (
+      <div className="bookingPanelMid">
+        <div className="bookingDoctorsBoard">
+          {doctorsBoard}
+        </div>
+      </div>
+    ) : ('');
+    const bookingPanelDetails = description.length > 0 ? (
+      <div className="bookingPanelDetails">
+        <div className="bookingDescription">
+          {description}
+        </div>
+      </div>
+    ) : ('');
+
     return (
       <div id={`bookingPanel-${id}`} className="bookingPanel" key={id}>
         <div className="bookingPanelTop">
@@ -71,16 +87,8 @@ class BookingPanel extends React.Component {
             />
           </div>
         </div>
-        <div className="bookingPanelMid">
-          <div className="bookingDoctorsBoard">
-            {doctorsBoard}
-          </div>
-        </div>
-        <div className="bookingPanelDetails">
-          <div className="bookingDescription">
-            {description}
-          </div>
-        </div>
+        {bookingPanelMid}
+        {bookingPanelDetails}
       </div>
     );
   }

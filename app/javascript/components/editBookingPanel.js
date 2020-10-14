@@ -29,7 +29,6 @@ class EditBookingPanel extends React.Component {
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validateForm = this.validateForm.bind(this);
-    this.clearForm = this.clearForm.bind(this);
   }
 
   handleTimeStampChange(e) {
@@ -54,22 +53,6 @@ class EditBookingPanel extends React.Component {
     this.setState({
       description: e.target.value,
     });
-  }
-
-  clearForm() {
-    this.setState = {
-      id: 0,
-      timeStamp: '',
-      department_id: 0,
-      doctorsBoard: '',
-      description: '',
-    };
-
-    gel('timeStamp').value = '';
-    gel('bookingSelectDepartment').value = 0;
-    gel('doctorsBoard').value = '';
-    gel('bookingDescription').value = '';
-
   }
 
   async handleSubmit(event) {
