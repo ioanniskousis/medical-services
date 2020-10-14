@@ -3,13 +3,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
 import React from 'react';
+// import { withRouter } from 'react-router-dom';
 // import { format } from 'date-fns';
 // import isDate from 'date-fns/isDate';
 // import isValid from 'date-fns/isValid';
 // import toDate from 'date-fns/toDate';
 
 import axios from 'axios';
-import appAlert from '../utils';
+import appAlert, { gel } from '../utils';
 import downloadBookings from '../api/bookingsDB';
 
 class EditBookingPanel extends React.Component {
@@ -63,6 +64,12 @@ class EditBookingPanel extends React.Component {
       doctorsBoard: '',
       description: '',
     };
+
+    gel('timeStamp').value = '';
+    gel('bookingSelectDepartment').value = 0;
+    gel('doctorsBoard').value = '';
+    gel('bookingDescription').value = '';
+
   }
 
   async handleSubmit(event) {
@@ -80,7 +87,9 @@ class EditBookingPanel extends React.Component {
         if (res.status === 201) {
           const { store } = this.props;
           downloadBookings(store)
-            .then(this.clearForm());
+            .then(
+              gel('nav-link-booking').click(),
+            );
         }
       })
       .catch(err => appAlert('Booking create', 'Error :  '.concat(err)));
@@ -120,13 +129,15 @@ class EditBookingPanel extends React.Component {
 
     departments.map(department => (
       departmentOptions.push(
-        <option
-          className="bookingSelectDepartmentOption"
-          key={++index}
-          value={department.id}
-        >
-          {department.name}
-        </option>
+        (
+          <option
+            className="bookingSelectDepartmentOption"
+            key={++index}
+            value={department.id}
+          >
+            {department.name}
+          </option>
+        ),
       )
     ));
     return (
@@ -143,7 +154,7 @@ class EditBookingPanel extends React.Component {
               placeholder="time stamp"
             />
             <div className="selectContainer">
-              <select className="bookingSelectDepartment" value={department_id} onChange={this.handleDepartmentChange}>
+              <select id="bookingSelectDepartment" className="bookingSelectDepartment" value={department_id} onChange={this.handleDepartmentChange}>
                 {departmentOptions}
               </select>
             </div>
@@ -151,8 +162,8 @@ class EditBookingPanel extends React.Component {
           <div className="bookingPanelMid">
             <input
               className="inputBookingDoctorsBoard"
-              id="timeStamp"
-              name="timeStamp"
+              id="doctorsBoard"
+              name="doctorsBoard"
               type="text"
               value={doctorsBoard}
               onChange={this.handleDoctorsBoardChange}

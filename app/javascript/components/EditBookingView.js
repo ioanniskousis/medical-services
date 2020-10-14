@@ -8,7 +8,7 @@ import getCookie from '../appCookies';
 import BookingPanel from './bookingPanel';
 import EditBookingPanel from './editBookingPanel';
 
-const BookingView = props => {
+const EditBookingView = props => {
   const loggedin = getCookie('loggedin');
   const userfullname = getCookie('userfullname');
   const username = (userfullname || 'unknown').replace('+', ' ');
@@ -35,24 +35,15 @@ const BookingView = props => {
     ));
   }
 
-  const newButtonDiv = loggedin ? (
-    <div className="newButtonDiv">
-      <div>
-        <Link to="/editBooking" className="nav-link nav-selected">add new</Link>
-      </div>
-    </div>
-  ) : ('');
-
   const bookingView = loggedin ? (
     <div className="bookingView">
       <div className="bookingViewHeader">
         <h2>{username}</h2>
         <p>Personal Booking Records</p>
       </div>
-      {newButtonDiv}
-      {/* {bookingEdit} */}
+      {bookingEdit}
       <div className="bookingsList">
-        {bookingsList}
+        {/* {bookingsList} */}
       </div>
     </div>
   ) : ('');
@@ -79,12 +70,12 @@ const BookingView = props => {
   );
 };
 
-BookingView.propTypes = {
+EditBookingView.propTypes = {
   clinicData: PropTypes.objectOf(PropTypes.any),
   store: PropTypes.objectOf(PropTypes.any),
 };
 
-BookingView.defaultProps = {
+EditBookingView.defaultProps = {
   clinicData: null,
   store: null,
 };
@@ -93,4 +84,4 @@ const mapStateToProps = state => ({
   clinicData: state.clinicData,
 });
 
-export default connect(mapStateToProps, null)(BookingView);
+export default connect(mapStateToProps, null)(EditBookingView);

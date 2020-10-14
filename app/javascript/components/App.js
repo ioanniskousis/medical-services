@@ -14,6 +14,7 @@ import Navbar from './Navbar';
 import HomeView from './homeView';
 import DoctorsView from './DoctorsView';
 import BookingView from './BookingView';
+import EditBookingView from './EditBookingView';
 
 import LogoText from './logoText';
 import downloadDepartments from '../api/departmentsDB';
@@ -49,6 +50,9 @@ class App extends React.Component {
               </Route>
               <Route path="/booking">
                 <BookingView store={store} />
+              </Route>
+              <Route path="/editBooking">
+                <EditBookingView store={store} />
               </Route>
               <Route path="/login">
                 <Login />

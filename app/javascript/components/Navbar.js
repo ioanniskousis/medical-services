@@ -17,6 +17,7 @@ const Navbar = props => {
   const viewServicesClass = pathname === '/services' ? 'nav-link nav-selected' : 'nav-link';
   const viewDoctorsClass = pathname === '/doctors' ? 'nav-link nav-selected' : 'nav-link';
   const viewBookClass = pathname === '/booking' ? 'nav-link nav-selected' : 'nav-link';
+  const viewEditBookClass = pathname === '/editBooking' ? 'nav-link nav-selected' : 'nav-link';
   const viewResultsClass = pathname === '/results' ? 'nav-link nav-selected' : 'nav-link';
   const viewContactClass = pathname === '/contact' ? 'nav-link nav-selected' : 'nav-link';
   const viewLoginClass = 'nav-link colorGreen';
@@ -30,9 +31,10 @@ const Navbar = props => {
   const logoutButton = loggedin ? (
     <li><a href="/sessions/0" className={viewLogoutClass}>log out</a></li>
   ) : '';
-  // <li><a href="/sessions/new" className={viewLoginClass}>log in</a></li>
-  // <li><Link to="/login" className={viewLoginClass}>login</Link></li>
-  // <li><a href="/sessions" className={viewLogoutClass}>log out</a></li>
+  const newBookingButton = loggedin ? (
+    <li><Link to="/editBooking" className={viewEditBookClass}>new</Link></li>
+  ) : '';
+
   return (
     <nav className="nav-wrapper">
       <div className="container">
@@ -40,7 +42,8 @@ const Navbar = props => {
           <li><Link to="/" className={viewHomeClass}>home</Link></li>
           <li><Link to="/services" className={viewServicesClass}>services</Link></li>
           <li><Link to="/doctors" className={viewDoctorsClass}>doctors</Link></li>
-          <li><Link to="/booking" className={viewBookClass}>booking</Link></li>
+          <li><Link to="/booking" id="nav-link-booking" className={viewBookClass}>booking</Link></li>
+          {newBookingButton}
           <li><Link to="/checkin" className={viewCheckInClass}>check in</Link></li>
           <li><Link to="/results" className={viewResultsClass}>results</Link></li>
           <li><Link to="/contact" className={viewContactClass}>contact</Link></li>

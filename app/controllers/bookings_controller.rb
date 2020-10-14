@@ -46,12 +46,6 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @current_user = User.find(session[:user_id])
-    # puts @current_user.fullname
-    # puts '==================================================='
-    # puts params[:data]["department_id"]
-    # puts params[:data]["description"]
-    # puts '==================================================='
-    # @booking = Booking.new(booking_params)
     @booking = Booking.new(
       user_id: @current_user.id,
       department_id: params[:data]["department_id"],
@@ -59,9 +53,6 @@ class BookingsController < ApplicationController
       doctorsBoard: params[:data]["doctorsBoard"],
       description: params[:data]["description"]
     );
-    # puts '==================================================='
-    # puts @booking.to_s
-    # puts '==================================================='
 
     respond_to do |format|
       if @booking.save
