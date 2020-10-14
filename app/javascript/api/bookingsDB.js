@@ -11,6 +11,7 @@ async function downloadBookings(store) {
   fetch(depatmentsURL)
     .then(response => response.json())
     .then(data => {
+      alert('downloadBookings : ' + JSON.stringify(data));
       store.dispatch(initBookings(data));
     })
     .catch(err => appAlert('download Bookings', 'Error :  '.concat(err)));

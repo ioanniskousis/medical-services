@@ -29,6 +29,7 @@ class App extends React.Component {
   }
 
   render() {
+    // alert('store : ' + JSON.stringify(store));
     // alert(JSON.stringify(this.props));
     return (
       <Provider store={store}>
@@ -37,11 +38,21 @@ class App extends React.Component {
             <LogoText />
             <Navbar />
             <Switch>
-              <Route exact path="/" component={HomeView} />
-              <Route path="/services" component={DepartmentsView} />
-              <Route path="/doctors" component={DoctorsView} />
-              <Route path="/booking" component={BookingView} />
-              <Route path="/login" component={Login} />
+              <Route exact path="/">
+                <HomeView />
+              </Route>
+              <Route path="/services">
+                <DepartmentsView />
+              </Route>
+              <Route path="/doctors">
+                <DoctorsView />
+              </Route>
+              <Route path="/booking">
+                <BookingView store={store} />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
             </Switch>
           </div>
         </BrowserRouter>

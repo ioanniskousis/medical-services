@@ -18,10 +18,12 @@ class Login extends React.Component {
   componentDidMount() {
     // alert(JSON.stringify(this.props));
     const { location } = this.props;
-    const { search } = location;
-    if (search) {
-      if (search.includes('login_error')) {
-        gel('error_message_top').innerHTML = 'Invalid UserName or PassWord';
+    if (location) {
+      const { search } = location;
+      if (search) {
+        if (search.includes('login_error')) {
+          gel('error_message_top').innerHTML = 'Invalid UserName or PassWord';
+        }
       }
     }
   }

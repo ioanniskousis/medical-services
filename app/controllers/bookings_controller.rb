@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :require_login
 
@@ -10,8 +11,12 @@ class BookingsController < ApplicationController
     department = params[:department]
     if user
       # @current_user = User.find(session[:user_id])
-      # render json: Booking.where('user_id  = ?', session[:user_id]).joins(:department).includes(:department).select('departments.name AS department_name').joins(:user).select(:fullname)
-      render json: @current_user.bookings
+      render json: Booking.where('user_id  = ?', session[:user_id])
+        .joins(:department)
+        .includes(:department)
+        .select('departments.name AS department_name')
+        .order(timeStamp: :desc)
+      # render json: @current_user.bookings
       # .joins(:department).select('bookings.id, bookings.timeStamp, departments.name AS department_name')
       # .select(:timeStamp).joins(:department).includes(:department, :user).select('departments.name AS department_name, users.fullname')
     elsif department
@@ -40,7 +45,23 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    @booking = Booking.new(booking_params)
+    @current_user = User.find(session[:user_id])
+    # puts @current_user.fullname
+    # puts '==================================================='
+    # puts params[:data]["department_id"]
+    # puts params[:data]["description"]
+    # puts '==================================================='
+    # @booking = Booking.new(booking_params)
+    @booking = Booking.new(
+      user_id: @current_user.id,
+      department_id: params[:data]["department_id"],
+      timeStamp: params[:data]["timeStamp"],
+      doctorsBoard: params[:data]["doctorsBoard"],
+      description: params[:data]["description"]
+    );
+    # puts '==================================================='
+    # puts @booking.to_s
+    # puts '==================================================='
 
     respond_to do |format|
       if @booking.save

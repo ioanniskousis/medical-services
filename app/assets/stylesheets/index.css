@@ -27,6 +27,10 @@ body {
   /* background-color: rgb(255, 181,0); */
 }
 
+input[type="button"]:disabled {
+  opacity: 0.3;
+}
+
 .medicalServicesPanel {
   position: absolute;
   top: 20px;
@@ -116,6 +120,7 @@ body {
   padding: 6px 16px;
   /* background-color: thistle; */
   /* list-style-type: none; */
+  border: none;
 }
 
 .nav-link:hover {
@@ -467,6 +472,12 @@ body {
   width: 100%;
   height: 100%;
   /* background-color: aquamarine; */
+  overflow: auto;
+  font-family: 'Mukta', sans-serif;
+}
+
+.bookingsNotLogged {
+  font-family: 'Mukta', sans-serif;
 }
 
 .bookingViewHeader {
@@ -493,15 +504,199 @@ body {
 }
 
 .bookingsList {
-  background-color: wheat;
+  /* background-color: wheat; */
   box-sizing: border-box;
 }
 
 .bookingPanel {
+  font-family: 'Mukta', sans-serif;
   margin: 10px;
   padding: 10px;
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* border-bottom: 2px solid brown; */
+}
+
+.editBookingPanelTop {
+  /* background-color: wheat; */
+  /* height: 40px; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  /* flex-wrap: wrap; */
+}
+
+.bookingPanelTop {
+  background-color: #eee;
+  /* height: 40px; */
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  /* flex-wrap: wrap; */
+  border-radius: 4px; 
+}
+
+.selectContainer {
+  /* background-color: teal; */
+  flex: 1;
+  height: 100%;
+  box-sizing: border-box;
+  text-align: left; 
+  margin-left: 20px;
+}
+
+.bookingSelectDepartment {
+  cursor: pointer;
+  /* text-align: right; */
+  appearance: none;
+  border: none;
+  line-height: 40px;
+  font-family: 'Mukta', sans-serif;
+  font-size: 16px;
+  /* letter-spacing: -0.15px; */
+  color: #333;
+  /* padding: 13px 60px 10px 17px; */
+  width: 95%;
+  max-width: 300px;
+  outline: none;
+  background-color: transparent;
+  /* margin: 0 0 0 4px; */
+  box-sizing: border-box;
+  /* text-align-last: right; */
+}
+
+.bookingSelectDepartmentOption {
+  line-height: 30px;
+}
+
+.bookingPanelMid {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.bookingPanelDetails {
+  /* background-color: brown; */
+  /* height: 80px; */
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+}
+
+.inputBookingTimeStamp {
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+  border-radius: 4px;
+  border: 1px solid #555;
+  outline: none;
+  box-sizing: border-box;
+  width: 30%;
+  min-width: 180px;
+  text-align: left;
+}
+
+.bookingTimeStamp {
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+  width: 30%;
+  min-width: 220px;
+  text-align: left;
+  color: brown;
+}
+
+.bookingDepartment {
+  font-size: 16px;
+  padding: 10px;
+  margin: 0 0 0 4px;
+  box-sizing: border-box;
+  width: 70%;
+  text-align: left;
+}
+
+.deleteBooking {
+  height: 100%;
+  width: 40px;
+  /* background-color: brown; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteBooking img {
+  display: block;
+  width: 50%;
+  width: 50%;
+  border: none;
+  margin: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.inputBookingDoctorsBoard {
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+  border-radius: 4px;
+  border: 1px solid #555;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+}
+
+.bookingDoctorsBoard {
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+}
+
+.inputBookingDescription {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+  border-radius: 4px;
+  border: 1px solid #555;
+  outline: none;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.bookingDescription {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.submitBookingContainer {
+  width: 100%;
+  /* background-color: brown; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.submitBooking {
+  background-color: rgb(137, 199, 0);
+  color: white;
 }
 
 @media only screen and (max-width: 580px) {

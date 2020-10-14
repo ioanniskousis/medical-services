@@ -1,4 +1,4 @@
-/* eslint-disable react/no-array-index-key */
+/* eslint-disable no-plusplus */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import getCookie from '../appCookies';
 
 import BookingPanel from './bookingPanel';
+import EditBookingPanel from './editBookingPanel';
 
 const BookingView = props => {
   const loggedin = getCookie('loggedin');
@@ -13,13 +14,30 @@ const BookingView = props => {
   const username = (userfullname || 'unknown').replace('+', ' ');
   const { clinicData } = props;
   const { bookings } = clinicData;
+  const { store } = props;
+  // alert('store : ' + JSON.stringify(props));
+  // const centralState = store.getState();
 
-  const bookingsList = loggedin ? (bookings.map((booking, index) => (
-    <BookingPanel
-      booking={booking}
-      key={index + 1}
+  // alert(Object.keys(centralState.clinicData));
+
+  const bookingEdit = loggedin ? (
+    <EditBookingPanel
+      booking={null}
+      store={store}
     />
-  ))) : ('');
+  ) : ('');
+
+  let index = 0;
+  let bookingsList = ('');
+  if (loggedin) {
+    bookingsList = bookings.map(booking => (
+      <BookingPanel
+        booking={booking}
+        key={++index}
+        store={store}
+      />
+    ));
+  }
 
   const bookingView = loggedin ? (
     <div className="bookingView">
@@ -27,6 +45,7 @@ const BookingView = props => {
         <h2>{username}</h2>
         <p>Personal Booking Records</p>
       </div>
+      {bookingEdit}
       <div className="bookingsList">
         {bookingsList}
       </div>
@@ -34,7 +53,7 @@ const BookingView = props => {
   ) : ('');
 
   const caption = loggedin ? ('') : (
-    <div>
+    <div className="bookingsNotLogged">
       <h1>Bookings Desktop View</h1>
       <h2>you are not logged in</h2>
     </div>
@@ -57,10 +76,12 @@ const BookingView = props => {
 
 BookingView.propTypes = {
   clinicData: PropTypes.objectOf(PropTypes.any),
+  store: PropTypes.objectOf(PropTypes.any),
 };
 
 BookingView.defaultProps = {
   clinicData: null,
+  store: null,
 };
 
 const mapStateToProps = state => ({
