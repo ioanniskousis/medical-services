@@ -1,11 +1,13 @@
-/* eslint-disable class-methods-use-this */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable class-methods-use-this */
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 import axios from 'axios';
 import xmark from '../../assets/images/interface/x-mark-64.png';
+import pen from '../../assets/images/interface/edit-64.png';
 import { gel, appAlert } from '../utils';
 
 class BookingPanel extends React.Component {
@@ -17,7 +19,7 @@ class BookingPanel extends React.Component {
     this.state = {
       id: booking.id,
       timeStamp: timeLabel,
-      department: booking.department_name || '',
+      department: booking.department || '',
       doctorsBoard: booking.doctorsBoard || '',
       description: booking.description || '',
     };
@@ -25,7 +27,7 @@ class BookingPanel extends React.Component {
   }
 
   async deleteBooking(e) {
-    const id = e.target.getAttribute('bookingpanel');
+    const id = e.currentTarget.getAttribute('bookingpanel');
 
     const bookingURL = `/bookings/${id}`;
     const options = {
@@ -72,21 +74,26 @@ class BookingPanel extends React.Component {
     return (
       <div id={`bookingPanel-${id}`} className="bookingPanel" key={id}>
         <div className="bookingPanelTop">
+
           <div className="bookingTimeStamp">
             {timeStamp}
           </div>
+
           <div className="bookingDepartment">
             {department}
           </div>
-          <div className="deleteBooking">
-            <img
-              bookingpanel={id}
-              src={xmark}
-              alt=""
-              onClick={this.deleteBooking}
-            />
+          <Link to={`/editBooking/${id}`} className="editBookingButton">
+            <img src={pen} alt="" />
+          </Link>
+          <div
+            className="editBookingButton"
+            bookingpanel={id}
+            onClick={this.deleteBooking}
+          >
+            <img src={xmark} alt="" />
           </div>
         </div>
+
         {bookingPanelMid}
         {bookingPanelDetails}
       </div>
@@ -102,4 +109,4 @@ BookingPanel.defaultProps = {
   booking: null,
 };
 
-export default BookingPanel;
+export default withRouter(BookingPanel);

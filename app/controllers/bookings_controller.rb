@@ -10,27 +10,25 @@ class BookingsController < ApplicationController
     user = params[:user]
     department = params[:department]
     if user
-      # @current_user = User.find(session[:user_id])
+
       render json: Booking.where('user_id  = ?', session[:user_id])
         .joins(:department)
         .includes(:department)
-        .select('departments.name AS department_name')
+        .select('departments.name AS department')
         .order(timeStamp: :desc)
-      # render json: @current_user.bookings
-      # .joins(:department).select('bookings.id, bookings.timeStamp, departments.name AS department_name')
-      # .select(:timeStamp).joins(:department).includes(:department, :user).select('departments.name AS department_name, users.fullname')
+
     elsif department
       @department = Department.find(department)
       render json: @department.bookings.joins(:department).includes(:department).select('departments.name AS department_name')
     else
       render json: Booking.all.joins(:department).includes(:department).select('departments.name AS department_name')
     end
-    # render json: @current_user.bookings.joins(:department).includes(:department).select('departments.name AS department_name')
   end
 
   # GET /bookings/1
   # GET /bookings/1.json
   def show
+    render :json => @booking
   end
 
   # GET /bookings/new
@@ -40,6 +38,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1/edit
   def edit
+    render :json => @booking
   end
 
   # POST /bookings
@@ -68,6 +67,11 @@ class BookingsController < ApplicationController
   # PATCH/PUT /bookings/1
   # PATCH/PUT /bookings/1.json
   def update
+    @booking.department_id = params[:data]["department_id"]
+    @booking.timeStamp = params[:data]["timeStamp"]
+    @booking.doctorsBoard = params[:data]["doctorsBoard"]
+    @booking.description = params[:data]["description"]
+
     respond_to do |format|
       if @booking.update(booking_params)
         format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }

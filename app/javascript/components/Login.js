@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { gel } from '../utils';
 
@@ -57,9 +57,9 @@ class Login extends React.Component {
             <div className="serviceLabel">medical</div>
             <div className="serviceLabel pdL60">services</div>
           </div>
-          <p id="error_message_top" />
 
           <div className="new-session-main">
+            <p id="error_message_top" />
             <h1>Log In To Access Services</h1>
             <div className="form-div">
 
@@ -105,4 +105,4 @@ Login.defaultProps = {
   location: null,
 };
 
-export default Login;
+export default withRouter(Login);

@@ -1,19 +1,14 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable no-plusplus */
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
 import React from 'react';
-// import { withRouter } from 'react-router-dom';
-// import { format } from 'date-fns';
-// import isDate from 'date-fns/isDate';
-// import isValid from 'date-fns/isValid';
-// import toDate from 'date-fns/toDate';
-
+import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
-import { gel, appAlert } from '../utils';
-import downloadBookings from '../api/bookingsDB';
+import { format } from 'date-fns';
 
-class EditBookingPanel extends React.Component {
+import { gel, appAlert } from '../utils';
+import { downloadBookings } from '../api/bookingsDB';
+
+class BookingForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,33 +26,64 @@ class EditBookingPanel extends React.Component {
     this.validateForm = this.validateForm.bind(this);
   }
 
+  componentDidMount() {
+    const { match } = this.props;
+    const { params } = match;
+    const { id } = params;
+    if (id > 0) {
+      axios.get(`/bookings/${id}`)
+        .then(res => {
+          const timeStampDate = res.data.timeStamp ? new Date(res.data.timeStamp) : null;
+          const timeLabel = timeStampDate ? format(timeStampDate, 'MMMM dd, yyyy hh:mm') : 'date undefined';
+
+          const booking = {
+            id: res.data.id,
+            timeStamp: timeLabel,
+            department_id: res.data.department_id,
+            doctorsBoard: res.data.doctorsBoard,
+            description: res.data.description,
+          };
+          this.setState(booking);
+        });
+    }
+  }
+
+  clearform = () => {
+    gel('timeStamp').value = '';
+    gel('doctorsBoard').value = '';
+    gel('bookingSelectDepartment').value = 0;
+    gel('bookingDescription').value = '';
+  }
+
   handleTimeStampChange(e) {
+    e.preventDefault();
     this.setState({
       timeStamp: e.target.value,
     });
   }
 
   handleDepartmentChange(e) {
+    e.preventDefault();
     this.setState({
       department_id: e.target.value,
     });
   }
 
   handleDoctorsBoardChange(e) {
+    e.preventDefault();
     this.setState({
       doctorsBoard: e.target.value,
     });
   }
 
   handleDescriptionChange(e) {
+    e.preventDefault();
     this.setState({
       description: e.target.value,
     });
   }
 
-  async handleSubmit(event) {
-    event.preventDefault();
-
+  async add() {
     const bookingURL = '/bookings';
     const options = {
       method: 'POST',
@@ -65,17 +91,53 @@ class EditBookingPanel extends React.Component {
       withCredentials: true,
       data: this.state,
     };
+    const { history } = this.props;
     await axios.post(bookingURL, options)
       .then(res => {
         if (res.status === 201) {
+          this.setState({
+            id: res.data.id,
+          });
           const { store } = this.props;
           downloadBookings(store)
             .then(
-              gel('nav-link-booking').click(),
+              history.push('/booking'),
             );
         }
       })
       .catch(err => appAlert('Booking create', 'Error :  '.concat(err)));
+  }
+
+  async update(id) {
+    const bookingURL = `/bookings/${id}`;
+    const options = {
+      method: 'PATCH',
+      url: bookingURL,
+      withCredentials: true,
+      data: this.state,
+    };
+    const { history } = this.props;
+    await axios.patch(bookingURL, options)
+      .then(res => {
+        if (res.status === 200) {
+          const { store } = this.props;
+          downloadBookings(store)
+            .then(
+              history.push('/booking'),
+            );
+        }
+      })
+      .catch(err => appAlert('Booking update', 'Error :  '.concat(err)));
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const { id } = this.state;
+    if (id === 0) {
+      this.add();
+    } else {
+      this.update(id);
+    }
   }
 
   validateForm() {
@@ -97,12 +159,13 @@ class EditBookingPanel extends React.Component {
     const centeralState = store.getState();
     const { clinicData } = centeralState;
     const { departments } = clinicData;
-    let index = 0;
+
+    const submitCaption = id === 0 ? 'Add Booking' : 'Update';
     const departmentOptions = [
       (
         <option
           className="bookingSelectDepartmentOption"
-          key={index}
+          key={0}
           value={0}
         >
           Select Department
@@ -115,7 +178,7 @@ class EditBookingPanel extends React.Component {
         (
           <option
             className="bookingSelectDepartmentOption"
-            key={++index}
+            key={department.id}
             value={department.id}
           >
             {department.name}
@@ -123,9 +186,11 @@ class EditBookingPanel extends React.Component {
         ),
       )
     ));
+
     return (
       <form>
         <div className="bookingPanel" key={id}>
+          <input type="hidden" id="id" name="id" value={id} />
           <div className="editBookingPanelTop">
             <input
               className="inputBookingTimeStamp"
@@ -164,11 +229,12 @@ class EditBookingPanel extends React.Component {
             />
           </div>
           <div className="submitBookingContainer">
+            <Link to="/booking" className="nav-link nav-selected">cancel</Link>
             <input
               disabled={!this.validateForm()}
               type="button"
               className="nav-link nav-selected"
-              value="Add Booking"
+              value={submitCaption}
               onClick={this.handleSubmit}
             />
           </div>
@@ -179,4 +245,4 @@ class EditBookingPanel extends React.Component {
   }
 }
 
-export default EditBookingPanel;
+export default withRouter(BookingForm);

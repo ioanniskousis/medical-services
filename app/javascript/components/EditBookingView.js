@@ -1,87 +1,57 @@
-/* eslint-disable no-plusplus */
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+/* eslint-disable react/prefer-stateless-function */
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import getCookie from '../appCookies';
 
-import BookingPanel from './bookingPanel';
-import EditBookingPanel from './editBookingPanel';
+import BookingForm from './BookingForm';
 
-const EditBookingView = props => {
-  const loggedin = getCookie('loggedin');
-  const userfullname = getCookie('userfullname');
-  const username = (userfullname || 'unknown').replace('+', ' ');
-  const { clinicData } = props;
-  const { bookings } = clinicData;
-  const { store } = props;
+class EditBookingView extends Component {
+  render() {
+    const { match } = this.props;
+    const { params } = match;
+    const { id } = params;
+    const userfullname = getCookie('userfullname');
+    const username = (userfullname || 'unknown').replace('+', ' ');
+    const paragraph = id ? 'Editing Booking Details' : 'Add New Booking';
+    const { store } = this.props;
 
-  const bookingEdit = loggedin ? (
-    <EditBookingPanel
-      booking={null}
-      store={store}
-    />
-  ) : ('');
-
-  let index = 0;
-  let bookingsList = ('');
-  if (loggedin) {
-    bookingsList = bookings.map(booking => (
-      <BookingPanel
-        booking={booking}
-        key={++index}
-        store={store}
-      />
-    ));
+    return (
+      <div className="desktop-right">
+        <div className="bookingsDesktop">
+          <div className="bookingView">
+            <div className="bookingViewHeader">
+              <h2>{username}</h2>
+              <p>{paragraph}</p>
+            </div>
+            <BookingForm
+              store={store}
+            />
+          </div>
+        </div>
+      </div>
+    );
   }
-
-  const bookingView = loggedin ? (
-    <div className="bookingView">
-      <div className="bookingViewHeader">
-        <h2>{username}</h2>
-        <p>Personal Booking Records</p>
-      </div>
-      {bookingEdit}
-      <div className="bookingsList">
-        {/* {bookingsList} */}
-      </div>
-    </div>
-  ) : ('');
-
-  const caption = loggedin ? ('') : (
-    <div className="bookingsNotLogged">
-      <h1>Bookings Desktop View</h1>
-      <h2>you are not logged in</h2>
-    </div>
-  );
-
-  const loginButton = loggedin ? ('') : (
-    <Link to="/login" className="nav-link nav-selected">log in</Link>
-  );
-
-  return (
-    <div className="desktop-right">
-      <div className="bookingsDesktop">
-        {caption}
-        {loginButton}
-        {bookingView}
-      </div>
-    </div>
-  );
-};
+}
 
 EditBookingView.propTypes = {
-  clinicData: PropTypes.objectOf(PropTypes.any),
   store: PropTypes.objectOf(PropTypes.any),
+  params: PropTypes.objectOf(PropTypes.any),
+  match: PropTypes.objectOf(PropTypes.any),
+  id: PropTypes.objectOf(PropTypes.any),
 };
 
 EditBookingView.defaultProps = {
-  clinicData: null,
   store: null,
+  params: null,
+  match: null,
+  id: null,
 };
 
-const mapStateToProps = state => ({
-  clinicData: state.clinicData,
-});
+// const mapStateToProps = state => ({
+//   clinicData: state.clinicData,
+// });
 
-export default connect(mapStateToProps, null)(EditBookingView);
+// export default connect(mapStateToProps, null)(withRouter(EditBookingView));
+
+export default withRouter(EditBookingView);

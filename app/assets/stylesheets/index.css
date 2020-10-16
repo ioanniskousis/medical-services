@@ -631,24 +631,33 @@ input[type="button"]:disabled {
   box-sizing: border-box;
   width: 70%;
   text-align: left;
+  /* background-color: wheat; */
 }
 
-.deleteBooking {
+.editBookingButton {
   height: 40px;
-  width: 40px;
+  width: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
-.deleteBooking img {
+.editBookingButton img {
   display: block;
-  width: 50%;
-  width: 50%;
+  width: 20px;
+  width: 20px;
   border: none;
   margin: 0;
   background-color: transparent;
-  cursor: pointer;
+}
+
+.editBookingButton:hover {
+  background-color: #ccc;
+}
+
+.editBookingButton:active {
+  background-color: #aaa;
 }
 
 .inputBookingDoctorsBoard {
@@ -697,10 +706,13 @@ input[type="button"]:disabled {
 
 .submitBookingContainer {
   width: 100%;
-  /* background-color: brown; */
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.submitBookingContainer .nav-link {
+  margin: 10px;
 }
 
 .submitBooking {
@@ -752,4 +764,11 @@ input[type="button"]:disabled {
   .bookingViewHeader {
     height: 70px;
   }
+}
+
+
+.temp {
+  width: 400px;
+  height: 400px;
+  background-color: black;
 }

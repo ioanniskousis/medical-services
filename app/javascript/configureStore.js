@@ -7,7 +7,7 @@ const initialState = {
     departments: [],
     doctors: [],
     bookings: [],
-    userFullName: 'sdasdasdad',
+    userFullName: '',
   },
 };
 

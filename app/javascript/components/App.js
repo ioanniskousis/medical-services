@@ -5,7 +5,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 
-// import HelloWorld from './HelloWorld';
 import DepartmentsView from './DepartmentsView';
 
 import configureStore from '../configureStore';
@@ -18,7 +17,7 @@ import EditBookingView from './EditBookingView';
 
 import LogoText from './logoText';
 import downloadDepartments from '../api/departmentsDB';
-import downloadBookings from '../api/bookingsDB';
+import { downloadBookings } from '../api/bookingsDB';
 import Login from './Login';
 import SignUp from './signup';
 
@@ -31,8 +30,7 @@ class App extends React.Component {
   }
 
   render() {
-    // alert('store : ' + JSON.stringify(store));
-    // alert(JSON.stringify(this.props));
+    // alert('App render : ' + JSON.stringify(this.props));
     return (
       <Provider store={store}>
         <BrowserRouter className="App">
@@ -52,7 +50,10 @@ class App extends React.Component {
               <Route path="/booking">
                 <BookingView store={store} />
               </Route>
-              <Route path="/editBooking">
+              <Route path="/newBooking">
+                <EditBookingView store={store} />
+              </Route>
+              <Route path="/editBooking/:id">
                 <EditBookingView store={store} />
               </Route>
               <Route path="/login">

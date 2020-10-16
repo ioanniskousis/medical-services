@@ -20,18 +20,6 @@ class SignUp extends React.Component {
     this.validateForm = this.validateForm.bind(this);
   }
 
-  componentDidMount() {
-    const { location } = this.props;
-    if (location) {
-      const { search } = location;
-      if (search) {
-        if (search.includes('login_error')) {
-          gel('error_message_top').innerHTML = 'Invalid UserName or PassWord';
-        }
-      }
-    }
-  }
-
   handleUserNameChange(e) {
     e.preventDefault();
     this.setState({
@@ -74,7 +62,12 @@ class SignUp extends React.Component {
   }
 
   render() {
-    const { username, password, fullname, email } = this.state;
+    const {
+      username,
+      password,
+      fullname,
+      email,
+    } = this.state;
 
     return (
       <div className="desktop-right">
@@ -83,7 +76,6 @@ class SignUp extends React.Component {
             <div className="serviceLabel">medical</div>
             <div className="serviceLabel pdL60">services</div>
           </div>
-          <p id="error_message_top" />
 
           <div className="new-session-main">
             <h1>Sign Up Credencials</h1>
@@ -142,12 +134,12 @@ class SignUp extends React.Component {
   }
 }
 
-SignUp.propTypes = {
-  location: PropTypes.objectOf(PropTypes.any),
-};
+// SignUp.propTypes = {
+//   location: PropTypes.objectOf(PropTypes.any),
+// };
 
-SignUp.defaultProps = {
-  location: null,
-};
+// SignUp.defaultProps = {
+//   location: null,
+// };
 
 export default SignUp;

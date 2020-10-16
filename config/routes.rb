@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   resources :bookings, defaults: { format: 'json' }
-  resources :departments, defaults: { format: 'json' }
-  resources :users, defaults: { format: 'json' }
+
+  get "/departments" => "departments#index", defaults: { format: 'json' }
+  resources :departments
   
+  resources :users, defaults: { format: 'json' }
+
   get "/sessions/:id" => "sessions#destroy", defaults: { format: 'json' }
   post "/sessions" => "sessions#create", defaults: { format: 'json' }
 

@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -15,13 +14,12 @@ const BookingView = props => {
   const { bookings } = clinicData;
   const { store } = props;
 
-  let index = 0;
-  let bookingsList = ('');
+  let bookingsList = '';
   if (loggedin) {
     bookingsList = bookings.map(booking => (
       <BookingPanel
         booking={booking}
-        key={++index}
+        key={booking.id}
         store={store}
       />
     ));
@@ -30,7 +28,7 @@ const BookingView = props => {
   const newButtonDiv = loggedin ? (
     <div className="newButtonDiv">
       <div>
-        <Link to="/editBooking" className="nav-link nav-selected">add new</Link>
+        <Link to="/newBooking" className="nav-link nav-selected">add new</Link>
       </div>
     </div>
   ) : ('');
