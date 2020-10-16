@@ -69,12 +69,12 @@ list of services and an instrument's profile view. It connects to the **Financia
 ## Screen Shots
 
 ### Home
-<img src="./app/assets/images/screen-shots/home.png" alt="home.png" width="800">
+<img src="./app/assets/images/screen-shots/home.png" alt="home.png" width="320">
 <img src="./app/assets/images/screen-shots/home-land.png" alt="home-land.png" width="800">
 <hr />
 
 ### Services
-<img src="./app/assets/images/screen-shots/services.png" alt="services.png" width="800">
+<img src="./app/assets/images/screen-shots/services.png" alt="services.png" width="320">
 <hr />
 
 ### Doctors
@@ -83,16 +83,16 @@ list of services and an instrument's profile view. It connects to the **Financia
 <hr />
 
 ### Booking
-<img src="./app/assets/images/screen-shots/bookings-index.png" alt="bookings-index.png" width="800">
+<img src="./app/assets/images/screen-shots/bookings-index.png" alt="bookings-index.png" width="320">
 <img src="./app/assets/images/screen-shots/bookings-index-land.png" alt="bookings-index-land.png" width="800">
-<img src="./app/assets/images/screen-shots/bookings-new.png" alt="bookings-new.png" width="800">
+<img src="./app/assets/images/screen-shots/bookings-new.png" alt="bookings-new.png" width="320">
 <img src="./app/assets/images/screen-shots/bookings-new-land.png" alt="bookings-new-land.png" width="800">
-<img src="./app/assets/images/screen-shots/bookings-edit-land.png" alt="bookings-new-land.png" width="800">
+<img src="./app/assets/images/screen-shots/bookings-edit-land.png" alt="bookings-edit-land.png" width="800">
 <hr />
 
 ### Sign
-<img src="./app/assets/images/screen-shots/login.png" alt="login.png" width="800">
-<img src="./app/assets/images/screen-shots/signup.png" alt="signup.png" width="800">
+<img src="./app/assets/images/screen-shots/login.png" alt="login.png" width="320">
+<img src="./app/assets/images/screen-shots/signup.png" alt="signup.png" width="320">
 <hr />
 
 <!-- ABOUT THE PROJECT -->
