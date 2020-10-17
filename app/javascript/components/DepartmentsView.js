@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import DepartmentPanel from '../components/DepartmentPanel';
+import DepartmentPanel from './departmentPanel';
 import imageForCancer from '../../assets/images/Cancer Services.jpeg';
 import imageForCardiology from '../../assets/images/cardiology.jpeg';
 import imageForSurgery from '../../assets/images/surgery.jpeg';
