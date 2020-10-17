@@ -1,7 +1,7 @@
 /* eslint-disable import/no-duplicates */
 import React from 'react';
-import './Carousel';
-import carouselInit, { stopTimer } from './Carousel';
+import './carousel';
+import carouselInit, { stopTimer } from './carousel';
 import leftArrow from '../../assets/images/interface/arrow-left.png';
 import rightArrow from '../../assets/images/interface/arrow-right.png';
 
