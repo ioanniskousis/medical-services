@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       true
     else
-      # redirect_to new_session_path
       redirect_to '/login'
       false
     end

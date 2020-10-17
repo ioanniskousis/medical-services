@@ -1,24 +1,17 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-
 import { Provider } from 'react-redux';
-
-
 import configureStore from '../configureStore';
-
 import Navbar from '../components/Navbar';
 import LogoText from '../components/logoText';
 import Login from '../components/Login';
 import SignUp from '../components/Signup';
-
 import HomeView from './homeView';
 import DepartmentsView from './DepartmentsView';
 import DoctorsView from './DoctorsView';
 import BookingView from './BookingView';
 import EditBookingView from './EditBookingView';
-
 import downloadDepartments from '../api/departmentsDB';
 import { downloadBookings } from '../api/bookingsDB';
 
@@ -31,7 +24,6 @@ class App extends React.Component {
   }
 
   render() {
-    // alert('App render : ' + JSON.stringify(this.props));
     return (
       <Provider store={store}>
         <BrowserRouter className="App">

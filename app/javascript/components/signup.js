@@ -1,7 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import PropTypes from 'prop-types';
-import { gel } from '../utils';
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -133,13 +131,5 @@ class SignUp extends React.Component {
     );
   }
 }
-
-// SignUp.propTypes = {
-//   location: PropTypes.objectOf(PropTypes.any),
-// };
-
-// SignUp.defaultProps = {
-//   location: null,
-// };
 
 export default SignUp;

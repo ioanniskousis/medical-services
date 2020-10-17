@@ -17,12 +17,8 @@ const Navbar = props => {
   const viewServicesClass = pathname === '/services' ? 'nav-link nav-selected' : 'nav-link';
   const viewDoctorsClass = pathname === '/doctors' ? 'nav-link nav-selected' : 'nav-link';
   const viewBookClass = pathname === '/booking' ? 'nav-link nav-selected' : 'nav-link';
-  const viewEditBookClass = pathname === '/editBooking' ? 'nav-link nav-selected' : 'nav-link';
-  const viewResultsClass = pathname === '/results' ? 'nav-link nav-selected' : 'nav-link';
-  const viewContactClass = pathname === '/contact' ? 'nav-link nav-selected' : 'nav-link';
   const viewLoginClass = 'nav-link colorGreen';
   const viewLogoutClass = 'nav-link colorRed';
-  const viewCheckInClass = pathname === '/checkin' ? 'nav-link nav-selected' : 'nav-link';
 
   const loggedin = getCookieValue('loggedin');
   const loginButton = !loggedin ? (
@@ -30,9 +26,6 @@ const Navbar = props => {
   ) : '';
   const logoutButton = loggedin ? (
     <li><a href="/sessions/0" className={viewLogoutClass}>log out</a></li>
-  ) : '';
-  const newBookingButton = loggedin ? (
-    <li><Link to="/editBooking" className={viewEditBookClass}>new</Link></li>
   ) : '';
 
   return (

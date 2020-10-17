@@ -29,12 +29,6 @@ class UsersController < ApplicationController
     password = params["password"]
     fullname = params["fullname"]
     email = params["email"]
-    puts '===================================================='
-    puts username
-    puts password
-    puts fullname
-    puts email
-    puts '===================================================='
 
     @user = User.new(
       username: username,
@@ -42,21 +36,16 @@ class UsersController < ApplicationController
       fullname: fullname,
       email: email,
     )
+    if @user.save
+      session[:user_id] = @user.id
+      cookies[:loggedin] = 'true'
+      cookies[:userfullname] = @user.fullname
 
-    # respond_to do |format|
-      if @user.save
-        # format.html { redirect_to @user, notice: 'User was successfully created.' }
-        # format.json { render :show, status: :created, location: @user }
-        session[:user_id] = @user.id
-        cookies[:loggedin] = 'true'
-        cookies[:userfullname] = @user.fullname
-  
-        redirect_to '/services'
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    # end
+      redirect_to '/services'
+    else
+      format.html { render :new }
+      format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
   end
 
   # PATCH/PUT /users/1

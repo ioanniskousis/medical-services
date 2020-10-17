@@ -1,10 +1,7 @@
 /* eslint-disable import/no-duplicates */
 import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-
-import './carousel';
-import carouselInit, { stopTimer } from './carousel';
+import '../components/Carousel';
+import carouselInit, { stopTimer } from '../components/Carousel';
 import leftArrow from '../../assets/images/interface/arrow-left.png';
 import rightArrow from '../../assets/images/interface/arrow-right.png';
 
@@ -17,9 +14,7 @@ class DoctorsView extends React.Component {
     stopTimer();
   }
 
-  render(props) {
-    // const { clinicData } = props;
-    // const { doctors } = clinicData;
+  render() {
     return (
       <div className="desktop-right">
         <div className="doctorsView">
@@ -44,16 +39,4 @@ class DoctorsView extends React.Component {
   }
 }
 
-DoctorsView.propTypes = {
-  clinicData: PropTypes.objectOf(PropTypes.any),
-};
-
-DoctorsView.defaultProps = {
-  clinicData: null,
-};
-
-const mapStateToProps = state => ({
-  clinicData: state.clinicData,
-});
-
-export default connect(mapStateToProps, null)(DoctorsView);
+export default DoctorsView;

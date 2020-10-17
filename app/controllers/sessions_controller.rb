@@ -1,11 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  # def new
-  #   logout
-  #   render :new
-  # end
-
   def create
     @user = User.find_by(username: params[:username], password: params[:password])
     if @user

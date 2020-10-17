@@ -11,7 +11,7 @@ const initDataReducer = (state = {
 }, action) => {
   switch (action.type) {
     case INIT_DEPARTMENTS:
-    { // alert('action.departments : ' + JSON.stringify(action.departments));
+    {
       return {
         departments: action.departments,
         doctors: state.doctors,
@@ -28,9 +28,6 @@ const initDataReducer = (state = {
     }
     case INIT_BOOKINGS:
     {
-      if (action.bookings) {
-        // alert('action.bookings : ' + Object.keys(action.bookings[0]));
-      }
       return {
         departments: state.departments,
         doctors: state.doctors,

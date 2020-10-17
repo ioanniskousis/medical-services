@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DepartmentPanel = props => {
-  // alert(Object.keys(props));
   const {
     name,
     rank,
@@ -12,7 +11,6 @@ const DepartmentPanel = props => {
     reverse,
   } = props;
   const imageName = image || '';
-  // alert(area);
   const areaClass = 'area'.concat(area.toUpperCase());
   const flexRow = 'departmentPanel '.concat(areaClass);
   const flexCol = 'departmentPanel flexCol '.concat(areaClass);

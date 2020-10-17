@@ -16,7 +16,6 @@ html {
   height: 100%;
   padding: 0;
   margin: 0;
-  /* background-color: orange; */
 }
 
 body {
@@ -24,7 +23,6 @@ body {
   height: 100%;
   padding: 10px;
   margin: 0;
-  /* background-color: rgb(255, 181,0); */
 }
 
 input[type="button"]:disabled {
@@ -50,7 +48,6 @@ input[type="button"]:disabled {
   line-height: 24px;
   color: #222;
   text-shadow: 8px 8px 8px rgba(3, 3, 3, 0.3);
-   /* , 1px 1px rgb(255, 181,0); */
 }
 
 .pdL60 {
@@ -65,17 +62,9 @@ input[type="button"]:disabled {
 .App {
   margin: 0;
   padding: 0;
-  /* background-color: rgb(30, 110, 102); */
 }
 
 .desktop {
-  /* padding: 20px;
-  margin: 20px; */
-  /* background-color: rgba(255, 255, 255, 0.8); */
-  /* background-color: yellow; */
-  /* background-color: transparent; */
-  /* background-color: rgb(255, 181, 0); */
-  /* border: 1px solid red; */
   position: absolute;
   top: 0;
   left: 0;
@@ -98,7 +87,6 @@ input[type="button"]:disabled {
 
 .nav-wrapper .container {
   width: 100%;
-  /* background-color: rosybrown; */
 }
 
 .nav-wrapper ul {
@@ -118,36 +106,31 @@ input[type="button"]:disabled {
   color: #333;
   display: block;
   padding: 6px 16px;
-  /* background-color: thistle; */
-  /* list-style-type: none; */
   border: none;
   cursor: pointer;
 }
 
 .nav-link:hover {
-  background-color: rgb(137,199, 0);
-  color:rgba(255, 255, 255, 0.9);
+  background-color: rgb(137, 199, 0);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .nav-selected {
-  background-color: rgb(137,199, 0);
-  color:rgba(255, 255, 255, 0.9);
+  background-color: rgb(137, 199, 0);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .desktop-right {
   flex: 1;
   height: 100%;
   box-sizing: border-box;
-  /* background-color: black; */
-  /* padding: 10px; */
 }
 
 .homeView {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-wrap: wrap; */
-  background-color: rgb(255, 181,0);
+  background-color: rgb(255, 181, 0);
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -155,10 +138,7 @@ input[type="button"]:disabled {
 
 .homeDescription {
   width: 20%;
-  /* flex: 1; */
   height: 100%;
-  /* min-width: 240px; */
-  /* background-color: rgba(100, 100, 255, 0.5); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,10 +151,7 @@ input[type="button"]:disabled {
 
 .homeServices {
   width: 20%;
-  /* flex: 1; */
   height: 100%;
-  /* min-width: 240px; */
-  /* background-color: rgba(255, 100, 100, 0.5); */
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -183,24 +160,19 @@ input[type="button"]:disabled {
   padding: 20px;
   font-family: 'Mukta', sans-serif;
   font-size: 16px;
-  /* color: #333; */
   color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
 }
 
 .homeViewBody {
   width: 60%;
-  /* min-width: 480px; */
   height: 100%;
-  /* background-color: rgba(100, 255, 100, 0.5); */
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: relative;
 }
-
 
 .homeViewBody span {
   font-size: 16px;
@@ -233,16 +205,9 @@ input[type="button"]:disabled {
   width: 100%;
   max-width: 780px;
   border-radius: 6px;
-  
 }
-
-.homeImage:hover {
-  /* box-shadow: 0 0 4px 4px rgba(100, 100, 100, 0.3); */
-}
-
 
 .departmentsList {
-  /* background-color: rgb(43, 81, 116); */
   height: 100%;
   width: 100%;
   padding: 20px;
@@ -252,7 +217,6 @@ input[type="button"]:disabled {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: burlywood; */
   height: 100%;
   padding: 80px 60px;
   overflow: auto;
@@ -263,20 +227,18 @@ input[type="button"]:disabled {
   height: 100%;
   display: grid;
   grid-template-areas:
-          "a a a a a a"
-          "a a a a a a"
-          "b b b c c c"
-          "b b b c c c"
-          "b b b c c c"
-          "b b b c c c"
-          "d d d d d d"
-          "d d d d d d";
-  grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr;
+    "a a a a a a"
+    "a a a a a a"
+    "b b b c c c"
+    "b b b c c c"
+    "b b b c c c"
+    "b b b c c c"
+    "d d d d d d"
+    "d d d d d d";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   overflow: auto;
   grid-gap: 10px;
-  /* background-color: rgb(29, 66, 51); */
-  /* box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.1); */
   padding: 20px;
 }
 
@@ -318,7 +280,6 @@ input[type="button"]:disabled {
 
 .departmentPanel {
   display: flex;
-  /* border: 1px solid black; */
 }
 
 .flexCol {
@@ -333,25 +294,18 @@ input[type="button"]:disabled {
   overflow: hidden;
   box-sizing: border-box;
   padding: 10px;
-  /* border: 1px solid black; */
   margin: 10px;
 }
 
 .departmentPanelImage {
   display: block;
   height: 20vh;
-  /* box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.3); */
-  /* border-radius: 10px; */
-  /* margin: 10px; */
   overflow: hidden;
 }
 
 .departmentPanelImageCol {
   display: block;
   width: 40vw;
-  /* box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.3); */
-  /* border-radius: 10px; */
-  /* margin: 10px; */
   overflow: hidden;
 }
 
@@ -400,12 +354,10 @@ input[type="button"]:disabled {
   margin: 0;
   width: 100%;
   height: 100%;
-  /* background-color: red; */
   position: relative;
 }
 
 .doctorsCarousel {
-  /* background: #000; */
   width: 100%;
   height: calc(100% - 30px);
   color: #888;
@@ -426,7 +378,6 @@ input[type="button"]:disabled {
   width: 100%;
   height: 100%;
   text-align: center;
-  /* background-color: blue; */
 }
 
 @media only screen and (max-width: 961px) {
@@ -440,11 +391,14 @@ input[type="button"]:disabled {
     height: auto;
     background-color: rgba(100, 100, 100, 0.3);
     line-height: 18px;
+    order: 1;
   }
 
   .homeServices {
     width: 100%;
     height: 240px;
+    order: 2;
+    justify-content: flex-start;
   }
 
   .homeViewBody {
@@ -454,18 +408,7 @@ input[type="button"]:disabled {
     height: 480px;
   }
 
-  .homeDescription {
-    order: 1;
-    /* margin-top: 100px; */
-  }
-
-  .homeServices {
-    order: 2;
-    justify-content: flex-start;
-  }
   .homeImage {
-    /* max-height: 400px; */
-    /* width: auto; */
     max-width: 480px;
   }
 }
@@ -473,7 +416,6 @@ input[type="button"]:disabled {
 .bookingView {
   width: 100%;
   height: 100%;
-  /* background-color: aquamarine; */
   overflow: auto;
   font-family: 'Mukta', sans-serif;
 }
@@ -486,7 +428,6 @@ input[type="button"]:disabled {
   font-family: 'Mukta', sans-serif;
   margin: 0 0 20px 0;
   height: 140px;
-  /* margin-top: 80px; */
   padding: 10px 0;
   background-image: linear-gradient(rgba(240, 240, 240, 1), #fff);
   display: flex;
@@ -506,44 +447,35 @@ input[type="button"]:disabled {
 }
 
 .bookingsList {
-  /* background-color: wheat; */
   box-sizing: border-box;
 }
 
 .bookingPanel {
   font-family: 'Mukta', sans-serif;
   margin: 10px;
-  /* padding: 10px; */
-  /* background-color: yellowgreen; */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  /* border-bottom: 2px solid brown; */
 }
 
 .editBookingPanelTop {
-  /* background-color: wheat; */
-  /* height: 40px; */
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  /* flex-wrap: wrap; */
 }
 
 .bookingPanelTop {
   background-color: #eee;
-  /* height: 40px; */
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
-  /* flex-wrap: wrap; */
-  border-radius: 4px; 
+  border-radius: 4px;
 }
 
 .newButtonDiv {
@@ -558,32 +490,26 @@ input[type="button"]:disabled {
 }
 
 .selectContainer {
-  /* background-color: teal; */
   flex: 1;
   height: 100%;
   box-sizing: border-box;
-  text-align: left; 
+  text-align: left;
   margin-left: 20px;
 }
 
 .bookingSelectDepartment {
   cursor: pointer;
-  /* text-align: right; */
   appearance: none;
   border: none;
   line-height: 40px;
   font-family: 'Mukta', sans-serif;
   font-size: 16px;
-  /* letter-spacing: -0.15px; */
   color: #333;
-  /* padding: 13px 60px 10px 17px; */
   width: 95%;
   max-width: 300px;
   outline: none;
   background-color: transparent;
-  /* margin: 0 0 0 4px; */
   box-sizing: border-box;
-  /* text-align-last: right; */
 }
 
 .bookingSelectDepartmentOption {
@@ -631,7 +557,6 @@ input[type="button"]:disabled {
   box-sizing: border-box;
   width: 70%;
   text-align: left;
-  /* background-color: wheat; */
 }
 
 .editBookingButton {
@@ -646,7 +571,7 @@ input[type="button"]:disabled {
 .editBookingButton img {
   display: block;
   width: 20px;
-  width: 20px;
+  height: 20px;
   border: none;
   margin: 0;
   background-color: transparent;
@@ -724,6 +649,7 @@ input[type="button"]:disabled {
   .desktop {
     flex-direction: column;
   }
+
   .desktop-right {
     width: 100%;
     height: calc(100% - 240px);
@@ -733,18 +659,6 @@ input[type="button"]:disabled {
     height: 120px;
     width: 100%;
     margin-top: 80px;
-    
-    /* flex-direction: row; */
-    /* width: 140px;
-    height: 100%;
-    padding: 0 0 0 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center; */
-  }
-
-  .nav-wrapper-ul {
-    
   }
 
   .nav-wrapper ul li {
@@ -753,7 +667,6 @@ input[type="button"]:disabled {
   }
 
   .nav-link {
-    /* margin: 2px; */
     border-bottom: 1px solid #555;
   }
 
@@ -765,7 +678,6 @@ input[type="button"]:disabled {
     height: 70px;
   }
 }
-
 
 .temp {
   width: 400px;
