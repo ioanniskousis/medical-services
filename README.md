@@ -60,6 +60,7 @@
 - [Contributors](#contributors)
 - [Acknowledgements](#acknowledgements)
 
+<div style="background-color: #ddd;">
 ## Screen Shots
 
 ### Home
@@ -98,7 +99,7 @@
   <img src="./app/assets/images/screen-shots/signup.png" alt="signup.png" width="320">
 </div>
 <hr />
-
+</div>
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
