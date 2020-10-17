@@ -6,7 +6,7 @@ import configureStore from '../configureStore';
 import Navbar from './Navbar';
 import LogoText from './logoText';
 import Login from './Login';
-import SignUp from './Signup';
+import SignUp from './signup';
 import HomeView from './homeView';
 import DepartmentsView from './DepartmentsView';
 import DoctorsView from './DoctorsView';
