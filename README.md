@@ -25,7 +25,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/ioanniskousis/medical-services">
-    <img src="src/microverse.png" alt="Microverse Logo" width="80" height="80">
+    <img src="./app/assets/images/screen-shots/microverse.png" alt="Microverse Logo" width="80" height="80">
   </a>
   
   <h3 align="center">The Medical Center Services Application</h3>
@@ -101,32 +101,54 @@ list of services and an instrument's profile view. It connects to the **Financia
 
 The project was created as a rails application configured to react using the --webpack=react key  
 
-It is a Single Page Application using Redux Routers to show subpages   
-The entry point leads to the Symbols List where available symbols are shown including company name, the last closing price and the Stock Exchange where the symbol is traded  
-Symbols can be filtered by their container Stock Exchange using the filter selection at the top-right  
-Clicking a symbol panel shows the Symbol Profile page where all available information about the selected symbol is shown in a table view  
+1. The user logs in the app, only by typing the username (a proper authenticated login is not a mandatory requirement, but it is in the nice-to-have list)
+2. The user is presented with a list of motorcycle models that can be checked
+3. The user selects a model and access to the model detail page
+4. In the model detail page, the user can decide to reserve an appointment to try this model: the user has to select a date and city (username and model are autofilled)
+5. You have a page to check the list of appointments of the user
 
-The project files tree:
+You should follow the guidelines of the given design, including:
 
-```
-  
-```
+- colors (use a similar color palette)
+- typographies: font face, size and weight (if the font is not openly accessible, use a similar one)
+- layout: composition and space between elements
 
-  - The entry point is root **scr/index.js** where the **App** component is rendered through the **Provider** components of Redux. 
-  - Actions **initInstruments**, **changeFilter**, **showProfile**, and **showList** are in **actions/actionsIndex.js**  
-  - Componet **App** is held in respective file in **components/** folder  
-  - Reducers are in **reducers/** folder, currently only 1, the **instrumentsReducer** in reducers/instrumentsReducer.js is combined into **reducersIndex** held in reducers/reducersIndex.js  
-  - The **App** component renders either 
-    - **InstrumentsListHeader** and **InstrumentsList**  
-    or  
-    - **InstrumentProfileHeader** and **InstrumentProfile**  
-    components depending on selection between the index of symbols or a symbols's profile
-  - The **InstrumentsListHeader** component renders the header for the **Symbols List**, and filters symbols on selected Stock Exchage  
-  - The **InstrumentsList** renders the **Symbols List**  
-  - The **InstrumentProfileHeader** component renders the header for the **InstrumentProfile**  
-  - The **InstrumentProfile** renders all available information about an instrument  
+While developing the project, you should follow the best practices that you already learned in the previous projects, like setting-up a code linter, using gitflow, testing business logic, writing good commit messages and an informative README.
 
-#### Please note that the number of downloaded symbols by the API is 14000+, so I limited this by slicing the array on the first 200 symbols
+You can access all the design info (color, typography, layouts) in this link:
+
+[https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)
+
+Design idea by [Murat Korkmaz on Behance](https://www.behance.net/muratk)
+
+The [Creative Commons license of the design](https://creativecommons.org/licenses/by-nc-nd/4.0/) requires that you give appropriate credit to the author. Therefore, you must do it in the README of your project.
+
+Technical mandatory requirements of the project:
+
+- The project is a tablet web app
+- The database should have at least 2 tables — in this example, motorcycle models and appointments, i.e., the appointments can be accessed by all users unless you implement a proper user authentication (more on this later)
+- You should use Postgres as your database
+- For the back-end you will use Ruby on Rails
+    - You will create a REST API to manage database resources, in this case, measurements (things to measure could be added manually to the database or from an admin panel)
+- For the front-end you will use React
+    - Connects to the back-end API to send and receive domain data
+    - With routes for each of the screens, so the user can easily go back and forward
+    - Using redux to store info used across the app, like the username
+- The project will be deployed and accessible online
+
+Here is a list of nice-to-have requirements, from which you should choose at least 1 to build:
+
+- Implement proper user authentication from the front-end to the server
+- Create a user table in your database, so that a given user could only access the appointments they have
+- Create an admin panel to create / update / delete motorcycle models
+- Make the app responsive, creating both mobile and desktop versions, following design guidelines
+- You could implement transitions to make user experience better
+- You can implement the lifestyle page
+- Create a full documentation for your API
+    - Be professional, your API should be easy to understand by the people who might want to use it. Remember about the documentation. You should be able to generate it. See these articles for inspiration but feel free to use any tool you like.
+        - [https://guides.rubyonrails.org/api_documentation_guidelines.html](https://guides.rubyonrails.org/api_documentation_guidelines.html)
+        - [https://rollout.io/blog/producing-documentation-for-your-rails-api/](https://rollout.io/blog/producing-documentation-for-your-rails-api/))
+        
 <hr/>
 
 <!-- ABOUT THE PROJECT -->

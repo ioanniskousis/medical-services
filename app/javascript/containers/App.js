@@ -5,21 +5,22 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 
-import DepartmentsView from './DepartmentsView';
 
 import configureStore from '../configureStore';
 
-import Navbar from './Navbar';
+import Navbar from '../components/Navbar';
+import LogoText from '../components/logoText';
+import Login from '../components/Login';
+import SignUp from '../components/Signup';
+
 import HomeView from './homeView';
+import DepartmentsView from './DepartmentsView';
 import DoctorsView from './DoctorsView';
 import BookingView from './BookingView';
 import EditBookingView from './EditBookingView';
 
-import LogoText from './logoText';
 import downloadDepartments from '../api/departmentsDB';
 import { downloadBookings } from '../api/bookingsDB';
-import Login from './Login';
-import SignUp from './signup';
 
 const store = configureStore();
 
