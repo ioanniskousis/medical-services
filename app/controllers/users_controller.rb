@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: %i[show edit update destroy]
 
   # GET /users
   # GET /users.json
   def index
-    render :json => User.all
+    render json: User.all
   end
 
   # GET /users/1
@@ -25,16 +25,16 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    username = params["username"]
-    password = params["password"]
-    fullname = params["fullname"]
-    email = params["email"]
+    username = params['username']
+    password = params['password']
+    fullname = params['fullname']
+    email = params['email']
 
     @user = User.new(
       username: username,
       password: password,
       fullname: fullname,
-      email: email,
+      email: email
     )
     if @user.save
       session[:user_id] = @user.id
@@ -73,13 +73,14 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:username, :password, :fullname, :email)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:username, :password, :fullname, :email)
+  end
 end

@@ -1,14 +1,14 @@
 class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
-  def as_json(options={})
+  def as_json(*)
     {
-      id: self.id,
-      username: self.username,
-      password: self.password,
-      fullname: self.fullname,
-      email: self.email,
-      admin: self.admin,
+      id: id,
+      username: username,
+      password: password,
+      fullname: fullname,
+      email: email,
+      admin: admin
     }
   end
 end

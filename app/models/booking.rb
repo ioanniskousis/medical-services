@@ -2,15 +2,15 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :department
 
-  def as_json(options={})
+  def as_json(*)
     {
-      id: self.id,
-      user_id: self.user_id,
-      department_id: self.department_id,
-      department: self.department.name,
-      doctorsBoard: self.doctorsBoard,
-      description: self.description,
-      timeStamp: self.timeStamp,
+      id: id,
+      user_id: user_id,
+      department_id: department_id,
+      department: department.name,
+      doctorsBoard: doctorsBoard,
+      description: description,
+      timeStamp: timeStamp
     }
   end
 end

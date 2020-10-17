@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: %i[show edit update destroy]
   before_action :require_login
 
   # GET /bookings
@@ -10,25 +10,28 @@ class BookingsController < ApplicationController
     user = params[:user]
     department = params[:department]
     if user
-
-      render json: Booking.where('user_id  = ?', session[:user_id])
-        .joins(:department)
+      render json: Booking.where('user_id  = ?', session[:user_id]).joins(:department)
         .includes(:department)
         .select('departments.name AS department')
         .order(timeStamp: :desc)
 
     elsif department
       @department = Department.find(department)
-      render json: @department.bookings.joins(:department).includes(:department).select('departments.name AS department_name')
+      render json: @department.bookings.joins(:department)
+        .includes(:department)
+        .select('departments.name AS department_name')
     else
-      render json: Booking.all.joins(:department).includes(:department).select('departments.name AS department_name')
+      render json: Booking.all
+        .joins(:department)
+        .includes(:department)
+        .select('departments.name AS department_name')
     end
   end
 
   # GET /bookings/1
   # GET /bookings/1.json
   def show
-    render :json => @booking
+    render json: @booking
   end
 
   # GET /bookings/new
@@ -38,7 +41,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1/edit
   def edit
-    render :json => @booking
+    render json: @booking
   end
 
   # POST /bookings
@@ -47,11 +50,11 @@ class BookingsController < ApplicationController
     @current_user = User.find(session[:user_id])
     @booking = Booking.new(
       user_id: @current_user.id,
-      department_id: params[:data]["department_id"],
-      timeStamp: params[:data]["timeStamp"],
-      doctorsBoard: params[:data]["doctorsBoard"],
-      description: params[:data]["description"]
-    );
+      department_id: params[:data]['department_id'],
+      timeStamp: params[:data]['timeStamp'],
+      doctorsBoard: params[:data]['doctorsBoard'],
+      description: params[:data]['description']
+    )
 
     respond_to do |format|
       if @booking.save
@@ -67,10 +70,10 @@ class BookingsController < ApplicationController
   # PATCH/PUT /bookings/1
   # PATCH/PUT /bookings/1.json
   def update
-    @booking.department_id = params[:data]["department_id"]
-    @booking.timeStamp = params[:data]["timeStamp"]
-    @booking.doctorsBoard = params[:data]["doctorsBoard"]
-    @booking.description = params[:data]["description"]
+    @booking.department_id = params[:data]['department_id']
+    @booking.timeStamp = params[:data]['timeStamp']
+    @booking.doctorsBoard = params[:data]['doctorsBoard']
+    @booking.description = params[:data]['description']
 
     respond_to do |format|
       if @booking.update(booking_params)
@@ -94,13 +97,14 @@ class BookingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_booking
-      @booking = Booking.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def booking_params
-      params.fetch(:booking, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def booking_params
+    params.fetch(:booking, {})
+  end
 end
