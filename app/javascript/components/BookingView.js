@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import getCookie from '../appCookies';
 
-import BookingPanel from '../components/bookingPanel';
+import BookingPanel from './BookingPanel';
 
 const BookingView = props => {
   const loggedin = getCookie('loggedin');

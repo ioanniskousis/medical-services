@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import getCookie from '../appCookies';
 
-import BookingForm from '../components/BookingForm';
+import BookingForm from './BookingForm';
 
 class EditBookingView extends Component {
   render() {
