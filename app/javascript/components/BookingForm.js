@@ -196,7 +196,7 @@ class BookingForm extends React.Component {
               className="inputBookingTimeStamp"
               id="timeStamp"
               name="timeStamp"
-              type="text"
+              type="datetime-local"
               value={timeStamp}
               onChange={this.handleTimeStampChange}
               placeholder="time stamp"
