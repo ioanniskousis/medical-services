@@ -1,6 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 
+function validateEmail(email) {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
@@ -53,10 +58,11 @@ class SignUp extends React.Component {
       fullname,
       email,
     } = this.state;
+    const validEmail = validateEmail(email);
     return (username.length > 0)
         && (password.length > 0)
         && (fullname.length > 0)
-        && (email.length > 0);
+        && validEmail;
   }
 
   render() {
