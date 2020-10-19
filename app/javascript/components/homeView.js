@@ -21,17 +21,19 @@ const HomeView = props => {
   return (
     <div className="desktop-right">
       <div className="homeView">
-        <div className="homeDescription">{description}</div>
+        <section className="homeDescription">{description}</section>
         <div className="homeViewBody">
-          <div className="homeTitle">The Medical Center</div>
+          <div className="homeTitle">
+            <h1>The Medical Center</h1>
+          </div>
           <Link to="/services" className="homeLink">
             <img src={homeImage} className="homeImage" alt="" />
           </Link>
           <span>click image to enter services</span>
         </div>
-        <div className="homeServices">
+        <section className="homeServices">
           {departmentsList}
-        </div>
+        </section>
         <Link to="/search" className="searchLink">
           <img src={searchImage} className="searchImage" alt="" />
         </Link>

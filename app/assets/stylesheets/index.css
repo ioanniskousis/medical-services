@@ -183,7 +183,6 @@ input[type="button"]:disabled {
 
 .homeTitle {
   display: flex;
-  font-size: 42px;
   font-family: 'Mukta', sans-serif;
   justify-content: center;
   align-items: center;
@@ -191,6 +190,10 @@ input[type="button"]:disabled {
   color: rgba(255, 255, 255, 1);
   line-height: 32px;
   z-index: 10;
+}
+
+.homeTitle h1 {
+  font-size: 42px;
 }
 
 .homeLink {
