@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 2020_10_10_190131) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "department_id"
+    t.bigint "user_id", null: false
+    t.bigint "department_id", null: false
     t.string "doctorsBoard"
     t.text "description"
-    t.datetime "timeStamp"
+    t.datetime "timeStamp", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["department_id"], name: "index_bookings_on_department_id"
