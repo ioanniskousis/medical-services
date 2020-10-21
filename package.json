@@ -41,6 +41,6 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "test": "react-scripts test"
+    "test": "jest"
   }
 }
