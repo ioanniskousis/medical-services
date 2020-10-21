@@ -155,7 +155,9 @@ Design guidelines are based on this [link](https://www.behance.net/gallery/26425
 ```
   https://github.com/ioanniskousis/medical-services.git  
 
-  run : bandle install  
+  run : bundle install  
+  run : rails db:create  
+  run : rails db:migrate 
   run : rails server  
   type in browser 127.0.0.1:3000 to open the application  
 ```
