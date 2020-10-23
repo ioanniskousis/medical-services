@@ -6,8 +6,8 @@ import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 import axios from 'axios';
-import xmark from '../../assets/images/interface/x-mark-64.png';
-import pen from '../../assets/images/interface/edit-64.png';
+// import xmark from '../../assets/images/interface/x-mark-64.png';
+// import pen from '../../assets/images/interface/edit-64.png';
 import { gel, appAlert } from '../utils';
 
 class BookingPanel extends React.Component {
@@ -83,14 +83,14 @@ class BookingPanel extends React.Component {
             {department}
           </div>
           <Link to={`/editBooking/${id}`} className="editBookingButton">
-            <img src={pen} alt="" />
+            {/* <img src={pen} alt="" /> */}
           </Link>
           <div
             className="editBookingButton"
             bookingpanel={id}
             onClick={this.deleteBooking}
           >
-            <img src={xmark} alt="" />
+            {/* <img src={xmark} alt="" /> */}
           </div>
         </div>
 

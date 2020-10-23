@@ -147,7 +147,6 @@ Design guidelines are based on this [link](https://www.behance.net/gallery/26425
 ### [On Heroku](https://medical-services-jgk.herokuapp.com)
 <hr/>
 
-
 ## Development
 
 - Clone the project

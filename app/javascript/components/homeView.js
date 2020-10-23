@@ -1,10 +1,11 @@
+/* eslint-disable global-require */
 /* eslint-disable no-plusplus */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import homeImage from '../../assets/images/homeImage.jpeg';
-import searchImage from '../../assets/images/searchImage.png';
+// import homeImage from '../../assets/images/homeImage.jpeg';
+// import searchImage from '../../assets/images/searchImage.png';
 
 const HomeView = props => {
   const desc1 = 'The clinic performs all kind of medical exams, using the most advanced equipment by certified ';
@@ -13,10 +14,8 @@ const HomeView = props => {
 
   const { clinicData } = props;
   const { departments } = clinicData;
-  let index = 1;
   const departmentsList = departments.map(department => (
-    // eslint-disable-next-line no-param-reassign
-    <div className="pdR10" key={++index}>{department.name}</div>
+    <div className="pdR10" key={department.id}>{department.name}</div>
   ));
   return (
     <div className="desktop-right">
@@ -27,7 +26,7 @@ const HomeView = props => {
             <h1>The Medical Center</h1>
           </div>
           <Link to="/services" className="homeLink">
-            <img src={homeImage} className="homeImage" alt="" />
+            {/* <img src={homeImage} className="homeImage" alt="" /> */}
           </Link>
           <span>click image to enter services</span>
         </div>
@@ -35,7 +34,7 @@ const HomeView = props => {
           {departmentsList}
         </section>
         <Link to="/search" className="searchLink">
-          <img src={searchImage} className="searchImage" alt="" />
+          {/* <img src={searchImage} className="searchImage" alt="" /> */}
         </Link>
       </div>
     </div>
