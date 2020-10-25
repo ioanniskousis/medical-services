@@ -1,25 +1,25 @@
 import { gel, crel } from '../utils';
-// import photo1 from '../../assets/images/photo1.jpeg';
-// import photo2 from '../../assets/images/photo2.jpeg';
-// import photo3 from '../../assets/images/photo3.jpeg';
-// import photo4 from '../../assets/images/photo4.jpeg';
-// import photo5 from '../../assets/images/photo5.jpeg';
-// import photo6 from '../../assets/images/photo6.jpeg';
-// import photo7 from '../../assets/images/photo7.jpeg';
+import photo1 from '../../assets/images/photo1.jpeg';
+import photo2 from '../../assets/images/photo2.jpeg';
+import photo3 from '../../assets/images/photo3.jpeg';
+import photo4 from '../../assets/images/photo4.jpeg';
+import photo5 from '../../assets/images/photo5.jpeg';
+import photo6 from '../../assets/images/photo6.jpeg';
+import photo7 from '../../assets/images/photo7.jpeg';
 
-// import wheelImage from '../../assets/images/interface/gear-2-64.png';
+import wheelImage from '../../assets/images/interface/gear-2-64.png';
 
 let CLOCK_ROUNDS = 0;
 
 function slidesTB() {
   return [
-    // photo1,
-    // photo2,
-    // photo3,
-    // photo4,
-    // photo5,
-    // photo6,
-    // photo7,
+    photo1,
+    photo2,
+    photo3,
+    photo4,
+    photo5,
+    photo6,
+    photo7,
   ];
 }
 const slides = slidesTB();
@@ -50,7 +50,7 @@ function loadSlides() {
     indexButton.className = 'indexButton';
     footer.appendChild(indexButton);
 
-    // gel('wheel').style.backgroundImage = wheelImage;
+    gel('wheel').style.backgroundImage = wheelImage;
   }
 }
 

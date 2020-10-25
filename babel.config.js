@@ -25,8 +25,8 @@ module.exports = function(api) {
           },
           modules: 'commonjs'
         },
-        '@babel/preset-react'
       ],
+      '@babel/preset-react',
       (isProductionEnv || isDevelopmentEnv) && [
         '@babel/preset-env',
         {
@@ -38,7 +38,6 @@ module.exports = function(api) {
         }
       ],
       [
-        '@babel/preset-react',
         {
           development: isDevelopmentEnv || isTestEnv,
           useBuiltIns: true
@@ -46,6 +45,7 @@ module.exports = function(api) {
       ]
     ].filter(Boolean),
     plugins: [
+      '@babel/plugin-syntax-jsx',
       'babel-plugin-macros',
       '@babel/plugin-syntax-dynamic-import',
       isTestEnv && 'babel-plugin-dynamic-import-node',
