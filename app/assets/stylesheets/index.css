@@ -1,0 +1,689 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@600;700&family=Mukta:wght@500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+* ::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  margin: 0;
+}
+
+input[type="button"]:disabled {
+  opacity: 0.3;
+}
+
+.medicalServicesPanel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Sansita Swashed', cursive;
+  font-size: 32px;
+  font-weight: 800;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.serviceLabel {
+  width: 100%;
+  line-height: 24px;
+  color: #222;
+  text-shadow: 8px 8px 8px rgba(3, 3, 3, 0.3);
+}
+
+.pdL60 {
+  padding-left: 60px;
+  color: #333;
+}
+
+.pdR10 {
+  padding-right: 10px;
+}
+
+.App {
+  margin: 0;
+  padding: 0;
+}
+
+.desktop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nav-wrapper {
+  width: 140px;
+  height: 100%;
+  padding: 0 0 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+}
+
+.nav-wrapper .container {
+  width: 100%;
+}
+
+.nav-wrapper ul {
+  list-style-type: none;
+  padding: 0;
+  display: block;
+  width: 100%;
+}
+
+.nav-link {
+  font-family: 'Mukta', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #333;
+  display: block;
+  padding: 6px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background-color: rgb(137, 199, 0);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-selected {
+  background-color: rgb(137, 199, 0);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.desktop-right {
+  flex: 1;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.homeView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 181, 0);
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.homeDescription {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Mukta', sans-serif;
+  font-size: 16px;
+  padding: 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.homeServices {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 20px;
+  font-family: 'Mukta', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+}
+
+.homeViewBody {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.homeViewBody span {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 50px;
+  font-family: 'Mukta', sans-serif;
+}
+
+.homeTitle {
+  display: flex;
+  font-family: 'Mukta', sans-serif;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  line-height: 32px;
+  z-index: 10;
+}
+
+.homeTitle h1 {
+  font-size: 42px;
+}
+
+.homeLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.homeImage {
+  width: 100%;
+  max-width: 780px;
+  border-radius: 6px;
+}
+
+.departmentsList {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+}
+
+.departmentsBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 80px 60px;
+  overflow: auto;
+}
+
+.departmentsGrid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+    "a a a a a a"
+    "a a a a a a"
+    "b b b c c c"
+    "b b b c c c"
+    "b b b c c c"
+    "b b b c c c"
+    "d d d d d d"
+    "d d d d d d";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  overflow: auto;
+  grid-gap: 10px;
+  padding: 20px;
+}
+
+.areaA {
+  grid-area: a;
+}
+
+.areaB {
+  grid-area: b;
+}
+
+.areaC {
+  grid-area: c;
+}
+
+.areaD {
+  grid-area: d;
+}
+
+.areaE {
+  grid-area: e;
+}
+
+.areaF {
+  grid-area: f;
+}
+
+.areaG {
+  grid-area: g;
+}
+
+.areaH {
+  grid-area: h;
+}
+
+.areaI {
+  grid-area: i;
+}
+
+.departmentPanel {
+  display: flex;
+}
+
+.flexCol {
+  flex-direction: column;
+}
+
+.departmentPanelImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px;
+}
+
+.departmentPanelImage {
+  display: block;
+  height: 20vh;
+  overflow: hidden;
+}
+
+.departmentPanelImageCol {
+  display: block;
+  width: 40vw;
+  overflow: hidden;
+}
+
+.departmentPanelNameContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Mukta', sans-serif;
+  font-size: 22px;
+  color: black;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.searchLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+}
+
+.searchLink:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.searchImage {
+  width: 50%;
+  height: 50%;
+}
+
+.depsList {
+  list-style-type: disc;
+}
+
+.doctorsView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.doctorsCarousel {
+  width: 100%;
+  height: calc(100% - 30px);
+  color: #888;
+  box-shadow: 0 0 4px 4px rgba(255, 255, 255, 0.3);
+  padding: 30px 60px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.bookingsDesktop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+@media only screen and (max-width: 961px) {
+  .homeView {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .homeDescription {
+    width: 100%;
+    height: auto;
+    background-color: rgba(100, 100, 100, 0.3);
+    line-height: 18px;
+    order: 1;
+  }
+
+  .homeServices {
+    width: 100%;
+    height: 240px;
+    order: 2;
+    justify-content: flex-start;
+  }
+
+  .homeViewBody {
+    order: 0;
+    margin-top: 80px;
+    width: 100%;
+    height: 480px;
+  }
+
+  .homeImage {
+    max-width: 480px;
+  }
+}
+
+.bookingView {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  font-family: 'Mukta', sans-serif;
+}
+
+.bookingsNotLogged {
+  font-family: 'Mukta', sans-serif;
+}
+
+.bookingViewHeader {
+  font-family: 'Mukta', sans-serif;
+  margin: 0 0 20px 0;
+  height: 140px;
+  padding: 10px 0;
+  background-image: linear-gradient(rgba(240, 240, 240, 1), #fff);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.bookingViewHeader h2 {
+  color: rgb(137, 199, 0);
+}
+
+.bookingViewHeader h2,
+.bookingViewHeader p {
+  margin: 0;
+}
+
+.bookingsList {
+  box-sizing: border-box;
+}
+
+.bookingPanel {
+  font-family: 'Mukta', sans-serif;
+  margin: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.editBookingPanelTop {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.bookingPanelTop {
+  background-color: #eee;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.newButtonDiv {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.newButtonDiv > div {
+  width: 160px;
+}
+
+.selectContainer {
+  flex: 1;
+  height: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.bookingSelectDepartment {
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  line-height: 40px;
+  font-family: 'Mukta', sans-serif;
+  font-size: 16px;
+  color: #333;
+  width: 95%;
+  max-width: 300px;
+  outline: none;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+.bookingSelectDepartmentOption {
+  line-height: 30px;
+}
+
+.bookingPanelMid {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.bookingPanelDetails {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+}
+
+.inputBookingTimeStamp {
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+  border-radius: 4px;
+  border: 1px solid #555;
+  outline: none;
+  box-sizing: border-box;
+  width: 30%;
+  min-width: 180px;
+  text-align: left;
+}
+
+.bookingTimeStamp {
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+  width: 30%;
+  min-width: 220px;
+  text-align: left;
+  color: brown;
+}
+
+.bookingDepartment {
+  font-size: 16px;
+  padding: 10px;
+  margin: 0 0 0 4px;
+  box-sizing: border-box;
+  width: 70%;
+  text-align: left;
+}
+
+.editBookingButton {
+  height: 40px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.editBookingButton img {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: none;
+  margin: 0;
+  background-color: transparent;
+}
+
+.editBookingButton:hover {
+  background-color: #ccc;
+}
+
+.editBookingButton:active {
+  background-color: #aaa;
+}
+
+.inputBookingDoctorsBoard {
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+  border-radius: 4px;
+  border: 1px solid #555;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+}
+
+.bookingDoctorsBoard {
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+}
+
+.inputBookingDescription {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+  border-radius: 4px;
+  border: 1px solid #555;
+  outline: none;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.bookingDescription {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.submitBookingContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.submitBookingContainer .nav-link {
+  margin: 10px;
+}
+
+.submitBooking {
+  background-color: rgb(137, 199, 0);
+  color: white;
+}
+
+@media only screen and (max-width: 580px) {
+  .desktop {
+    flex-direction: column;
+  }
+
+  .desktop-right {
+    width: 100%;
+    height: calc(100% - 240px);
+  }
+
+  .nav-wrapper {
+    height: 120px;
+    width: 100%;
+    margin-top: 80px;
+  }
+
+  .nav-wrapper ul li {
+    float: left;
+    display: block;
+  }
+
+  .nav-link {
+    border-bottom: 1px solid #555;
+  }
+
+  .departmentsBody {
+    padding: 0;
+  }
+
+  .bookingViewHeader {
+    height: 70px;
+  }
+}
+
+.temp {
+  width: 400px;
+  height: 400px;
+  background-color: black;
+}

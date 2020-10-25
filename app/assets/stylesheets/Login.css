@@ -1,0 +1,18 @@
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+    background-color: unset;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+
+#error_message_top {
+  color: red;
+  line-height: 40px;
+  font-size: 16px;
+  font-family: 'Mukta', sans-serif;
+}

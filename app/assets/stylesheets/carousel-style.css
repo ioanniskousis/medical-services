@@ -1,0 +1,140 @@
+.viewer {
+  position: relative;
+  width: 70vw;
+  height: 40vw;
+  overflow: hidden;
+}
+
+.slider {
+  position: absolute;
+  height: 100%;
+  width: 3500vw;
+  left: 0;
+  top: 0;
+  transition: left 0.5s ease-in-out;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.slide {
+  width: 70vw;
+  height: 100%;
+  padding: 0 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide img {
+  height: 100%;
+  width: 100%;
+}
+
+.side-controller {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  top: 60%;
+  width: 60px;
+  height: 50px;
+  transition: all 200ms;
+  cursor: pointer;
+  background-color: rgb(137, 199, 0);
+}
+
+.side-controller img {
+  opacity: 0.7;
+  width: 16px;
+  height: 16px;
+}
+
+.side-controller:hover {
+  opacity: 1;
+}
+
+.side-controller:active img {
+  opacity: 0.9;
+}
+
+.left-controller {
+  left: 0;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.right-controller {
+  right: 0;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+#carousel-footer {
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  box-shadow: 0 0 4px 4px rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.indexButton {
+  width: 20px;
+  height: 20px;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: rgba(137, 199, 0, 1);
+  margin: 4px 6px;
+  border-radius: 50%;
+}
+
+.indexButtonImage {
+  width: 24px;
+  height: 20px;
+}
+
+.indexButton:hover {
+  opacity: 1;
+}
+
+.indexSelected {
+  background-color: rgb(137, 199, 0);
+  opacity: 0.8;
+}
+
+.topControlsContainer {
+  position: absolute;
+  top: 10px;
+  left: calc(50% - 60px);
+  width: 120px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.wheel {
+  width: 30px;
+  height: 30px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  background-color: rgba(137, 199, 0, 0.3);
+  background-size: 70% 70%;
+  transition: transform 2s linear;
+}
+
+.wheel:hover {
+  background-color: rgba(137, 199, 0, 0.7);
+}
+
+.wheel:active {
+  background-color: rgba(137, 199, 0, 1);
+}
